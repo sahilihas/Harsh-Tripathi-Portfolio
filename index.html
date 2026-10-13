@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Harsh Tripathi — MarTech Consultant &amp; Software Engineer</title>
+  <meta name="description" content="Portfolio of Harsh Tripathi — Associate MarTech Consultant at RightWave & Software Developer specializing in Adobe Marketo, HubSpot, CRM integrations, and full-stack engineering." />
+
+  <!-- Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ── TOAST NOTIFICATION ── -->
+  <div class="toast-notification" id="toast" role="status" aria-live="polite">
+    <i class="fas fa-check-circle"></i>
+    <span id="toastMessage">Copied to clipboard</span>
+  </div>
+
+  <!-- ── COMMAND PALETTE MODAL (⌘K / Ctrl+K) ── -->
+  <div class="cmd-overlay" id="cmdOverlay" aria-hidden="true">
+    <div class="cmd-modal" role="dialog" aria-modal="true" aria-label="Command Palette">
+      <div class="cmd-search-bar">
+        <i class="fas fa-search cmd-search-icon"></i>
+        <input type="text" id="cmdInput" class="cmd-input" placeholder="Type a command or search sections..." autocomplete="off" />
+        <kbd class="cmd-esc" id="cmdCloseBtn">ESC</kbd>
+      </div>
+      <div class="cmd-list" id="cmdList">
+        <div class="cmd-group-label font-mono">QUICK ACTIONS</div>
+        <button class="cmd-item" data-action="copy-email">
+          <div class="cmd-item-left"><i class="far fa-copy"></i> <span>Copy Email Address</span></div>
+          <span class="cmd-shortcut font-mono">harsh21tripathi@gmail.com</span>
+        </button>
+        <button class="cmd-item" data-action="download-resume">
+          <div class="cmd-item-left"><i class="fas fa-download"></i> <span>Download Resume (DOCX)</span></div>
+          <span class="cmd-shortcut font-mono">Resume</span>
+        </button>
+        <button class="cmd-item" data-action="toggle-theme">
+          <div class="cmd-item-left"><i class="fas fa-adjust"></i> <span>Toggle Dark / Light Mode</span></div>
+          <span class="cmd-shortcut font-mono">Theme</span>
+        </button>
+
+        <div class="cmd-group-label font-mono">NAVIGATION</div>
+        <button class="cmd-item" data-action="nav" data-target="#overview">
+          <div class="cmd-item-left"><i class="fas fa-user"></i> <span>Go to Overview</span></div>
+          <span class="cmd-shortcut font-mono">#overview</span>
+        </button>
+        <button class="cmd-item" data-action="nav" data-target="#experience">
+          <div class="cmd-item-left"><i class="fas fa-briefcase"></i> <span>Go to Work Timeline</span></div>
+          <span class="cmd-shortcut font-mono">#experience</span>
+        </button>
+        <button class="cmd-item" data-action="nav" data-target="#skills">
+          <div class="cmd-item-left"><i class="fas fa-layer-group"></i> <span>Go to Interactive Skill Matrix</span></div>
+          <span class="cmd-shortcut font-mono">#skills</span>
+        </button>
+        <button class="cmd-item" data-action="nav" data-target="#projects">
+          <div class="cmd-item-left"><i class="fas fa-code-branch"></i> <span>Go to Selected Projects</span></div>
+          <span class="cmd-shortcut font-mono">#projects</span>
+        </button>
+        <button class="cmd-item" data-action="nav" data-target="#credentials">
+          <div class="cmd-item-left"><i class="fas fa-graduation-cap"></i> <span>Go to Education &amp; Certifications</span></div>
+          <span class="cmd-shortcut font-mono">#credentials</span>
+        </button>
+        <button class="cmd-item" data-action="nav" data-target="#contact">
+          <div class="cmd-item-left"><i class="fas fa-paper-plane"></i> <span>Go to Contact Form</span></div>
+          <span class="cmd-shortcut font-mono">#contact</span>
+        </button>
+
+        <div class="cmd-group-label font-mono">EXTERNAL PROFILES</div>
+        <button class="cmd-item" data-action="link" data-url="https://www.linkedin.com/in/harsh-tripathi-997251239/">
+          <div class="cmd-item-left"><i class="fab fa-linkedin-in"></i> <span>Open LinkedIn Profile</span></div>
+          <span class="cmd-shortcut font-mono">↗</span>
+        </button>
+        <button class="cmd-item" data-action="link" data-url="https://www.github.com/sahilihas">
+          <div class="cmd-item-left"><i class="fab fa-github"></i> <span>Open GitHub Profile</span></div>
+          <span class="cmd-shortcut font-mono">↗</span>
+        </button>
+      </div>
+      <div class="cmd-footer font-mono">
+        <span><kbd>↑</kbd><kbd>↓</kbd> to navigate</span>
+        <span><kbd>↵</kbd> to select</span>
+        <span><kbd>ESC</kbd> to dismiss</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PROJECT CASE STUDY MODAL ── -->
+  <div class="case-overlay" id="caseOverlay" aria-hidden="true">
+    <div class="case-modal" role="dialog" aria-modal="true" aria-labelledby="caseTitle">
+      <div class="case-modal-header">
+        <span class="case-type font-mono" id="caseType">PROJECT SPECIFICATION</span>
+        <button class="case-close-btn" id="caseCloseBtn" aria-label="Close modal">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="case-modal-body">
+        <h3 class="case-title" id="caseTitle">Project Title</h3>
+        <p class="case-subtitle" id="caseSubtitle"></p>
+
+        <div class="case-section">
+          <h4 class="case-section-label font-mono">01 / PROBLEM &amp; OBJECTIVE</h4>
+          <p id="caseProblem"></p>
+        </div>
+
+        <div class="case-section">
+          <h4 class="case-section-label font-mono">02 / TECHNICAL ARCHITECTURE</h4>
+          <ul class="case-bullet-list" id="caseArchitecture"></ul>
+        </div>
+
+        <div class="case-section">
+          <h4 class="case-section-label font-mono">03 / KEY DELIVERABLES &amp; OUTCOMES</h4>
+          <p id="caseOutcome"></p>
+        </div>
+
+        <div class="case-tech-stack font-mono" id="caseStack"></div>
+      </div>
+      <div class="case-modal-footer">
+        <a href="https://www.github.com/sahilihas" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" id="caseLinkBtn">
+          <i class="fab fa-github"></i> View Repository
+        </a>
+        <button class="btn btn-secondary btn-sm" id="caseDismissBtn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       SITE HEADER / NAVBAR
+  ══════════════════════════════════════ -->
+  <header class="navbar" id="navbar">
+    <div class="scroll-progress-bar" id="scrollProgress"></div>
+    <div class="nav-container">
+      <a href="#overview" class="brand">
+        <span class="brand-mark font-mono">HT</span>
+        <span class="brand-name">Harsh Tripathi</span>
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#overview" class="nav-link active">Overview</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#skills" class="nav-link">Competencies</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#credentials" class="nav-link">Credentials</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Command Palette Trigger -->
+        <button class="cmd-trigger-btn" id="cmdTrigger" title="Open Command Palette (Ctrl+K)">
+          <i class="fas fa-terminal"></i>
+          <span>Command</span>
+          <kbd class="font-mono">⌘K</kbd>
+        </button>
+
+        <!-- Theme Toggle -->
+        <button class="icon-btn" id="themeToggle" aria-label="Toggle theme" title="Toggle Dark / Light Mode">
+          <i class="fas fa-moon" id="themeIcon"></i>
+        </button>
+
+        <a href="assets/Harsh_Tripathi_Resume.docx" download class="btn btn-primary btn-sm">
+          <i class="fas fa-arrow-down"></i> <span>Resume</span>
+        </a>
+
+        <!-- Mobile Menu Button -->
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <a href="#overview" class="mobile-link">Overview</a>
+      <a href="#experience" class="mobile-link">Experience</a>
+      <a href="#skills" class="mobile-link">Competencies</a>
+      <a href="#projects" class="mobile-link">Projects</a>
+      <a href="#credentials" class="mobile-link">Credentials</a>
+      <a href="#contact" class="mobile-link">Contact</a>
+      <a href="assets/Harsh_Tripathi_Resume.docx" download class="mobile-link mobile-resume">
+        <i class="fas fa-arrow-down"></i> Download Resume
+      </a>
+    </div>
+  </header>
+
+  <!-- ══════════════════════════════════════
+       MAIN CONTAINER
+  ══════════════════════════════════════ -->
+  <main class="container">
+
+    <!-- ── COMPARTMENT 1: HERO OVERVIEW BENTO ── -->
+    <section class="section" id="overview">
+      <div class="hero-bento">
+
+        <!-- Left Compartment: Executive Intro -->
+        <div class="compartment hero-main-card spotlight-card">
+          <div class="hero-top-meta">
+            <div class="status-badge">
+              <span class="status-dot"></span>
+              <span>Available for new roles</span>
+            </div>
+            <div class="location-clock font-mono">
+              <i class="fas fa-globe-asia"></i>
+              <span>New Delhi, IN</span>
+              <span class="sep">·</span>
+              <span id="liveClock">--:-- IST</span>
+            </div>
+          </div>
+
+          <div class="hero-body">
+            <p class="hero-eyebrow font-mono">MARTECH CONSULTANT &amp; SOFTWARE ENGINEER</p>
+            <h1 class="hero-heading">
+              Architecting data-driven marketing automation &amp; scalable software systems.
+            </h1>
+            <p class="hero-lead">
+              I'm <strong>Harsh Tripathi</strong> — an Associate MarTech Consultant at <strong>RightWave</strong> with a B.Tech in Computer Science. I specialize in building lifecycle workflows in <strong>Adobe Marketo Engage</strong> and <strong>HubSpot</strong>, CRM lead routing, platform migrations, and full-stack engineering.
+            </p>
+
+            <!-- Dynamic Role Focus Switcher -->
+            <div class="focus-tabs-wrapper">
+              <div class="focus-tabs-header font-mono">
+                <span>SELECT LENS:</span>
+                <div class="focus-tabs">
+                  <button class="focus-tab active" data-lens="martech">MarTech &amp; CRM</button>
+                  <button class="focus-tab" data-lens="engineering">Software &amp; QA</button>
+                  <button class="focus-tab" data-lens="automation">Workflows &amp; API</button>
+                </div>
+              </div>
+              <div class="focus-lens-box" id="focusLensContent">
+                Delivering end-to-end campaign operations in Marketo Engage &amp; HubSpot, lead scoring models, Salesforce CRM synchronization, A/B testing, and Marketo-to-Iterable migration architecture.
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-actions-bar">
+            <a href="#experience" class="btn btn-primary">
+              Explore Timeline <i class="fas fa-arrow-down"></i>
+            </a>
+            <button class="btn btn-secondary" id="copyEmailHeroBtn" data-email="harsh21tripathi@gmail.com">
+              <i class="far fa-copy"></i> <span>Copy Email</span>
+            </button>
+            <div class="hero-socials">
+              <a href="https://www.linkedin.com/in/harsh-tripathi-997251239/" target="_blank" rel="noopener noreferrer" class="icon-btn" title="LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="https://www.github.com/sahilihas" target="_blank" rel="noopener noreferrer" class="icon-btn" title="GitHub">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="tel:+917982163076" class="icon-btn" title="Phone: +91-7982163076">
+                <i class="fas fa-phone"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Compartment: Profile & Telemetry -->
+        <div class="compartment hero-side-card spotlight-card">
+          <div class="portrait-container">
+            <img src="assets/harsh-profile.jpg" alt="Harsh Tripathi" class="portrait-image" />
+            <div class="portrait-caption font-mono">
+              <span>HARSH TRIPATHI</span>
+              <span>B.TECH CSE '24</span>
+            </div>
+          </div>
+
+          <!-- Key Metrics Grid -->
+          <div class="metrics-row">
+            <div class="metric-box">
+              <span class="metric-val font-mono" data-count="3">3</span>
+              <span class="metric-lbl">Corporate Roles</span>
+            </div>
+            <div class="metric-box">
+              <span class="metric-val font-mono">8.3</span>
+              <span class="metric-lbl">B.Tech CGPA</span>
+            </div>
+            <div class="metric-box">
+              <span class="metric-val font-mono" data-count="5">5</span>
+              <span class="metric-lbl">Certifications</span>
+            </div>
+          </div>
+
+          <!-- Spec Sheet -->
+          <div class="spec-table">
+            <div class="spec-item">
+              <span class="spec-key font-mono">CURRENT</span>
+              <span class="spec-val">RightWave (Noida)</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-key font-mono">PREVIOUS</span>
+              <span class="spec-val">HPCL · Itech Enterprises</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-key font-mono">PLATFORMS</span>
+              <span class="spec-val">Marketo · HubSpot · Iterable</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-key font-mono">CODE</span>
+              <span class="spec-val">Python · TS/React · Kotlin</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── COMPARTMENT 2: INTERACTIVE WORK & JOURNEY TIMELINE ── -->
+    <section class="section" id="experience">
+      <div class="section-top-bar">
+        <div>
+          <span class="eyebrow font-mono">01 / CHRONOLOGY</span>
+          <h2 class="section-heading">Career &amp; Academic Timeline</h2>
+        </div>
+
+        <!-- Timeline Filter Controls -->
+        <div class="segmented-control" id="timelineFilters">
+          <button class="seg-btn active" data-filter="all">All (5)</button>
+          <button class="seg-btn" data-filter="work">Work Experience (3)</button>
+          <button class="seg-btn" data-filter="academic">Education (2)</button>
+        </div>
+      </div>
+
+      <div class="timeline-compartment-list" id="timelineList">
+
+        <!-- Entry 1: RightWave -->
+        <article class="compartment timeline-card spotlight-card" data-category="work">
+          <div class="tl-left-col">
+            <span class="tl-date font-mono">Jan 2026 — Present</span>
+            <span class="tl-status-pill live font-mono">● CURRENT</span>
+            <span class="tl-loc font-mono">Noida, India</span>
+          </div>
+
+          <div class="tl-right-col">
+            <div class="tl-header">
+              <div>
+                <h3 class="tl-role">Associate MarTech Consultant</h3>
+                <p class="tl-company">RightWave</p>
+              </div>
+              <span class="tl-domain-badge font-mono">MARTECH &amp; LIFECYCLE</span>
+            </div>
+
+            <ul class="tl-points">
+              <li>Managed end-to-end email campaigns in <strong>Adobe Marketo Engage</strong> and <strong>HubSpot</strong>, covering campaign setup, scheduling, deployment, and automated nurture journeys with audience segmentation.</li>
+              <li>Built and optimized marketing automation workflows, <strong>lead scoring models</strong>, and <strong>Salesforce</strong> lead routing to streamline lifecycle marketing execution.</li>
+              <li>Monitored campaign performance via open rates, CTR, conversions, <strong>A/B testing</strong>, and <strong>EPR/ETR reporting</strong> to drive continuous optimization.</li>
+              <li>Performed rigorous campaign QA, list hygiene, CRM synchronization, and data validation to ensure accurate reporting.</li>
+              <li>Supported <strong>migration planning from Marketo to Iterable</strong> by documenting campaign logic, workflows, and asset inventories for seamless platform transition.</li>
+            </ul>
+
+            <div class="tl-footer">
+              <div class="tag-row font-mono">
+                <span>Adobe Marketo Engage</span>
+                <span>HubSpot</span>
+                <span>Salesforce CRM</span>
+                <span>Iterable</span>
+                <span>Lead Scoring</span>
+                <span>A/B Testing</span>
+                <span>EPR/ETR</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Entry 2: HPCL -->
+        <article class="compartment timeline-card spotlight-card" data-category="work">
+          <div class="tl-left-col">
+            <span class="tl-date font-mono">Jul 2025 — Oct 2025</span>
+            <span class="tl-status-pill font-mono">APPRENTICESHIP</span>
+            <span class="tl-loc font-mono">Delhi, India</span>
+          </div>
+
+          <div class="tl-right-col">
+            <div class="tl-header">
+              <div>
+                <h3 class="tl-role">Graduate Apprentice Trainee</h3>
+                <p class="tl-company">Hindustan Petroleum Corporation Limited (HPCL)</p>
+              </div>
+              <span class="tl-domain-badge font-mono">WORKFLOW AUTOMATION</span>
+            </div>
+
+            <ul class="tl-points">
+              <li>Engineered automated workflows for the Legal Department using <strong>Microsoft SharePoint</strong> and <strong>Power Automate</strong>, significantly reducing manual data entry and processing turnaround time.</li>
+              <li>Provided operational and technical support across <strong>IT, Strategic Planning, and Networking</strong> teams, contributing to cross-departmental initiatives and system productivity improvements.</li>
+            </ul>
+
+            <div class="tl-footer">
+              <div class="tag-row font-mono">
+                <span>SharePoint</span>
+                <span>Power Automate</span>
+                <span>Workflow Engineering</span>
+                <span>Enterprise IT</span>
+                <span>Networking</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Entry 3: Itech Enterprises -->
+        <article class="compartment timeline-card spotlight-card" data-category="work">
+          <div class="tl-left-col">
+            <span class="tl-date font-mono">Aug 2024 — Jan 2025</span>
+            <span class="tl-status-pill font-mono">TRAINEE</span>
+            <span class="tl-loc font-mono">Remote</span>
+          </div>
+
+          <div class="tl-right-col">
+            <div class="tl-header">
+              <div>
+                <h3 class="tl-role">Software Developer Trainee</h3>
+                <p class="tl-company">Itech Enterprises</p>
+              </div>
+              <span class="tl-domain-badge font-mono">FRONTEND &amp; QA</span>
+            </div>
+
+            <ul class="tl-points">
+              <li>Performed end-to-end testing and quality assurance using <strong>Playwright</strong> and <strong>Provar</strong> to validate automated scheduling workflows for patient appointment systems.</li>
+              <li>Contributed to front-end engineering using <strong>React.js, TypeScript, and Vite</strong> on an internal web application, strengthening technical fluency in data-driven interfaces.</li>
+            </ul>
+
+            <div class="tl-footer">
+              <div class="tag-row font-mono">
+                <span>React.js</span>
+                <span>TypeScript</span>
+                <span>Vite</span>
+                <span>Playwright</span>
+                <span>Provar</span>
+                <span>QA Automation</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Entry 4: B.Tech CSE -->
+        <article class="compartment timeline-card spotlight-card" data-category="academic">
+          <div class="tl-left-col">
+            <span class="tl-date font-mono">2021 — 2024</span>
+            <span class="tl-status-pill font-mono">CGPA 8.3 / 10</span>
+            <span class="tl-loc font-mono">New Delhi, India</span>
+          </div>
+
+          <div class="tl-right-col">
+            <div class="tl-header">
+              <div>
+                <h3 class="tl-role">B.Tech in Computer Science &amp; Engineering</h3>
+                <p class="tl-company">Delhi Technical Campus</p>
+              </div>
+              <span class="tl-domain-badge font-mono">BACHELOR'S DEGREE</span>
+            </div>
+
+            <ul class="tl-points">
+              <li>Graduated with First Division with Distinction (<strong>CGPA 8.3</strong>), focusing on software engineering, data structures, algorithms, and database management systems.</li>
+              <li>Published research paper on <strong>Sentiment Analysis of Users on "X"</strong> in the college journal; built <strong>Q Samriddhi</strong> (Blockchain governance) and <strong>Yathartha Connect</strong> (Kotlin safety app).</li>
+            </ul>
+
+            <div class="tl-footer">
+              <div class="tag-row font-mono">
+                <span>Computer Science</span>
+                <span>Data Structures</span>
+                <span>AI / NLP Research</span>
+                <span>Web3 &amp; Android</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Entry 5: Diploma -->
+        <article class="compartment timeline-card spotlight-card" data-category="academic">
+          <div class="tl-left-col">
+            <span class="tl-date font-mono">2018 — 2021</span>
+            <span class="tl-status-pill font-mono">CGPA 8.0 / 10</span>
+            <span class="tl-loc font-mono">New Delhi, India</span>
+          </div>
+
+          <div class="tl-right-col">
+            <div class="tl-header">
+              <div>
+                <h3 class="tl-role">Diploma in Computer Science</h3>
+                <p class="tl-company">GB Pant Institute of Technology</p>
+              </div>
+              <span class="tl-domain-badge font-mono">TECHNICAL DIPLOMA</span>
+            </div>
+
+            <ul class="tl-points">
+              <li>Completed 3-year technical diploma with <strong>8.0 CGPA</strong>, establishing core fundamentals in programming languages, computer networks, operating systems, and software design.</li>
+            </ul>
+
+            <div class="tl-footer">
+              <div class="tag-row font-mono">
+                <span>C++</span>
+                <span>Networking</span>
+                <span>Operating Systems</span>
+                <span>Database Fundamentals</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ── COMPARTMENT 3: INTERACTIVE COMPETENCIES EXPLORER ── -->
+    <section class="section" id="skills">
+      <div class="section-top-bar">
+        <div>
+          <span class="eyebrow font-mono">02 / CAPABILITIES</span>
+          <h2 class="section-heading">Interactive Competencies Matrix</h2>
+        </div>
+
+        <!-- Skill Filter Controls -->
+        <div class="segmented-control" id="skillFilters">
+          <button class="seg-btn active" data-skill-filter="all">All Stack</button>
+          <button class="seg-btn" data-skill-filter="martech">MarTech &amp; CRM</button>
+          <button class="seg-btn" data-skill-filter="dev">Engineering</button>
+          <button class="seg-btn" data-skill-filter="tools">Workflow &amp; QA</button>
+        </div>
+      </div>
+
+      <!-- Dynamic Skill Context Inspector Bar -->
+      <div class="compartment skill-inspector-bar">
+        <div class="inspector-indicator font-mono">
+          <i class="fas fa-crosshairs"></i>
+          <span id="inspectorSkillName">Hover or click any skill below to inspect real-world application</span>
+        </div>
+        <div class="inspector-detail" id="inspectorSkillDesc">
+          32 verified tools and competencies across enterprise marketing automation and software development.
+        </div>
+      </div>
+
+      <!-- 4-Compartment Matrix -->
+      <div class="matrix-grid">
+
+        <!-- Compartment A: Marketing Automation -->
+        <div class="compartment matrix-box spotlight-card" data-skill-group="martech">
+          <div class="matrix-box-header">
+            <span class="matrix-idx font-mono">01</span>
+            <h3>Marketing Automation &amp; CRM</h3>
+          </div>
+          <p class="matrix-sub">Lifecycle orchestration, lead scoring, and platform administration.</p>
+          <div class="interactive-tag-cloud">
+            <button class="skill-chip" data-skill="Adobe Marketo Engage" data-context="RightWave: End-to-end email campaign deployment, smart campaigns, lead scoring models, and nurture streams.">Adobe Marketo Engage</button>
+            <button class="skill-chip" data-skill="HubSpot (Marketing & Content Hub)" data-context="RightWave: Automated workflow design, dynamic list segmentation, email templates, and HubSpot CRM sync.">HubSpot (Marketing &amp; Content)</button>
+            <button class="skill-chip" data-skill="Iterable" data-context="RightWave: Supported Marketo-to-Iterable migration planning, documenting campaign logic and asset inventories.">Iterable</button>
+            <button class="skill-chip" data-skill="Salesforce CRM Routing" data-context="RightWave: Configured lead routing rules, CRM field synchronization, and bi-directional data validation.">Salesforce Lead Routing</button>
+            <button class="skill-chip" data-skill="Audience Segmentation" data-context="RightWave: Precision targeting, dynamic list hygiene, and behavioral segmentation for lifecycle programs.">Audience Segmentation</button>
+            <button class="skill-chip" data-skill="Lead Scoring Models" data-context="RightWave: Built demographic and behavioral scoring workflows to prioritize MQL handoffs.">Lead Scoring</button>
+            <button class="skill-chip" data-skill="A/B Testing" data-context="RightWave: Structured subject-line, content, and send-time experiments to lift CTR and conversion rates.">A/B Testing</button>
+            <button class="skill-chip" data-skill="Migration Planning" data-context="RightWave: Audited enterprise campaign ecosystems and mapped workflows for cross-platform transitions.">Migration Planning</button>
+          </div>
+        </div>
+
+        <!-- Compartment B: Programming & Dev -->
+        <div class="compartment matrix-box spotlight-card" data-skill-group="dev">
+          <div class="matrix-box-header">
+            <span class="matrix-idx font-mono">02</span>
+            <h3>Languages &amp; Software Engineering</h3>
+          </div>
+          <p class="matrix-sub">Full-stack web interfaces, mobile apps, and smart contracts.</p>
+          <div class="interactive-tag-cloud">
+            <button class="skill-chip" data-skill="Python" data-context="Research & Automation: Used for NLP sentiment analysis on X, data scripts, and API payload handling.">Python</button>
+            <button class="skill-chip" data-skill="JavaScript (ES6+)" data-context="Web Engineering: Interactive front-end logic, asynchronous API integrations, and DOM architecture.">JavaScript</button>
+            <button class="skill-chip" data-skill="TypeScript" data-context="Itech Enterprises: Type-safe component development on internal React/Vite web applications.">TypeScript</button>
+            <button class="skill-chip" data-skill="React.js & Vite" data-context="Itech Enterprises: Built modular, data-driven UI interfaces for appointment management systems.">React.js &amp; Vite</button>
+            <button class="skill-chip" data-skill="Kotlin (Android)" data-context="Yathartha Connect & Google Cert: Native Android app development with Maps API and real-time SOS tracking.">Kotlin</button>
+            <button class="skill-chip" data-skill="C++" data-context="Core CS: Object-oriented programming, data structures, and algorithmic problem solving.">C++</button>
+            <button class="skill-chip" data-skill="HTML5 & CSS3" data-context="Email & Web: Responsive email templates in Marketo/HubSpot and modern web interfaces.">HTML5 &amp; CSS3</button>
+            <button class="skill-chip" data-skill="Dart / Flutter" data-context="Cross-platform mobile UI development and state management.">Dart / Flutter</button>
+            <button class="skill-chip" data-skill="Solidity" data-context="Q Samriddhi: Smart contract engineering with Truffle and Hardhat for decentralized gaming governance.">Solidity</button>
+          </div>
+        </div>
+
+        <!-- Compartment C: Workflow & APIs -->
+        <div class="compartment matrix-box spotlight-card" data-skill-group="tools">
+          <div class="matrix-box-header">
+            <span class="matrix-idx font-mono">03</span>
+            <h3>Integration, APIs &amp; Workflow Tools</h3>
+          </div>
+          <p class="matrix-sub">iPaaS automation, enterprise connectors, and developer tooling.</p>
+          <div class="interactive-tag-cloud">
+            <button class="skill-chip" data-skill="REST APIs & Postman" data-context="MarTech & Dev: Testing webhook payloads, CRM integrations, and custom API endpoints.">REST APIs &amp; Postman</button>
+            <button class="skill-chip" data-skill="Power Automate" data-context="HPCL: Engineered automated legal document workflows reducing manual entry across departments.">Power Automate</button>
+            <button class="skill-chip" data-skill="Microsoft SharePoint" data-context="HPCL: Structured document repositories and automated trigger pipelines for the Legal Department.">SharePoint</button>
+            <button class="skill-chip" data-skill="Zapier & n8n" data-context="Automation: Low-code/node-based workflow orchestration connecting webhooks, CRMs, and marketing tools.">Zapier &amp; n8n</button>
+            <button class="skill-chip" data-skill="Clay.io" data-context="Data Enrichment: Automated lead enrichment and outbound data workflows.">Clay.io</button>
+            <button class="skill-chip" data-skill="SQL" data-context="Data Querying: Relational database querying, audience filtering, and data validation.">SQL</button>
+            <button class="skill-chip" data-skill="Git & GitHub" data-context="SSOC/TSOC & Dev: Version control, pull requests, branch management, and open-source collaboration.">Git &amp; GitHub</button>
+            <button class="skill-chip" data-skill="OutSystems" data-context="Low-code enterprise application rapid prototyping and deployment.">OutSystems</button>
+          </div>
+        </div>
+
+        <!-- Compartment D: QA & Analytics -->
+        <div class="compartment matrix-box spotlight-card" data-skill-group="tools">
+          <div class="matrix-box-header">
+            <span class="matrix-idx font-mono">04</span>
+            <h3>QA Testing &amp; Campaign Analytics</h3>
+          </div>
+          <p class="matrix-sub">Automated regression testing, telemetry, and performance reporting.</p>
+          <div class="interactive-tag-cloud">
+            <button class="skill-chip" data-skill="Playwright" data-context="Itech Enterprises: End-to-end browser automation testing for patient appointment scheduling flows.">Playwright</button>
+            <button class="skill-chip" data-skill="Provar" data-context="Itech Enterprises: Salesforce-native and workflow quality assurance testing.">Provar</button>
+            <button class="skill-chip" data-skill="Campaign Performance Reporting" data-context="RightWave: Tracking Open Rates, CTR, Click-to-Open, and conversion attribution across nurture tracks.">Performance Reporting</button>
+            <button class="skill-chip" data-skill="EPR / ETR Reporting" data-context="RightWave: Analyzing Email Performance Reports and Email Template Reports for executive stakeholders.">EPR / ETR Analytics</button>
+            <button class="skill-chip" data-skill="CRM Data Validation" data-context="RightWave: Ensuring lead sync integrity, deduplication, and list hygiene across Marketo and Salesforce.">CRM Data Validation</button>
+            <button class="skill-chip" data-skill="Firebase" data-context="Yathartha Connect: Real-time NoSQL cloud database, user authentication, and push alerts.">Firebase</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── COMPARTMENT 4: SELECTED PROJECTS (WITH CASE STUDY DRAWER) ── -->
+    <section class="section" id="projects">
+      <div class="section-top-bar">
+        <div>
+          <span class="eyebrow font-mono">03 / ENGINEERING &amp; RESEARCH</span>
+          <h2 class="section-heading">Selected Projects</h2>
+        </div>
+        <p class="section-note font-mono">Click "Inspect Architecture" on any card for full technical specs</p>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- Project 1: Yathartha Connect -->
+        <article class="compartment project-box spotlight-card">
+          <div>
+            <div class="proj-meta-top">
+              <span class="proj-tag font-mono">ANDROID · KOTLIN</span>
+              <a href="https://www.github.com/sahilihas" target="_blank" rel="noopener noreferrer" class="proj-ext-link" title="GitHub">
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
+            <h3 class="proj-title">Yathartha Connect</h3>
+            <p class="proj-desc">
+              Real-time personal safety Android application engineered in Kotlin with live GPS telemetry, emergency SOS alert dispatching, Google Maps API integration, and Firebase cloud persistence.
+            </p>
+          </div>
+
+          <div class="proj-bottom">
+            <div class="proj-stack font-mono">
+              <span>Kotlin</span>
+              <span>Google Maps API</span>
+              <span>Firebase</span>
+              <span>Android SDK</span>
+            </div>
+            <button class="proj-inspect-btn" data-project="yathartha">
+              <span>Inspect Architecture</span>
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+        </article>
+
+        <!-- Project 2: Q Samriddhi -->
+        <article class="compartment project-box spotlight-card">
+          <div>
+            <div class="proj-meta-top">
+              <span class="proj-tag font-mono">BLOCKCHAIN · WEB3</span>
+              <a href="https://www.github.com/sahilihas" target="_blank" rel="noopener noreferrer" class="proj-ext-link" title="GitHub">
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
+            <h3 class="proj-title">Q Samriddhi</h3>
+            <p class="proj-desc">
+              Decentralized blockchain governance platform built to address centralization in the gaming ecosystem, enabling transparent smart-contract voting and verifiable user control over digital assets.
+            </p>
+          </div>
+
+          <div class="proj-bottom">
+            <div class="proj-stack font-mono">
+              <span>Solidity</span>
+              <span>Truffle</span>
+              <span>Hardhat</span>
+              <span>Smart Contracts</span>
+            </div>
+            <button class="proj-inspect-btn" data-project="qsamriddhi">
+              <span>Inspect Architecture</span>
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+        </article>
+
+        <!-- Project 3: Sentiment Analysis Research -->
+        <article class="compartment project-box spotlight-card">
+          <div>
+            <div class="proj-meta-top">
+              <span class="proj-tag font-mono">PUBLISHED RESEARCH · AI</span>
+              <span class="proj-ext-link" title="Published in College Journal">
+                <i class="fas fa-book-open"></i>
+              </span>
+            </div>
+            <h3 class="proj-title">Sentiment Analysis on "X"</h3>
+            <p class="proj-desc">
+              Published research paper in the college journal analyzing user emotions and behavioral polarity on "X" (Twitter) using Natural Language Processing (NLP) pipelines and AI classification models.
+            </p>
+          </div>
+
+          <div class="proj-bottom">
+            <div class="proj-stack font-mono">
+              <span>Python</span>
+              <span>NLP</span>
+              <span>Machine Learning</span>
+              <span>Publication</span>
+            </div>
+            <button class="proj-inspect-btn" data-project="sentiment">
+              <span>Inspect Architecture</span>
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ── COMPARTMENT 5: CREDENTIALS & CERTIFICATIONS ── -->
+    <section class="section" id="credentials">
+      <div class="section-top-bar">
+        <div>
+          <span class="eyebrow font-mono">04 / CREDENTIALS</span>
+          <h2 class="section-heading">Certifications &amp; Open Source</h2>
+        </div>
+      </div>
+
+      <div class="certs-bento-grid">
+
+        <div class="compartment cert-card spotlight-card">
+          <div class="cert-card-top">
+            <span class="cert-domain font-mono">CYBERSECURITY</span>
+            <i class="fas fa-shield-alt cert-icon"></i>
+          </div>
+          <h3 class="cert-name">Honeywell Cybersecurity Training</h3>
+          <p class="cert-org font-mono">Palo Alto Networks</p>
+        </div>
+
+        <div class="compartment cert-card spotlight-card">
+          <div class="cert-card-top">
+            <span class="cert-domain font-mono">MOBILE ENGINEERING</span>
+            <i class="fab fa-android cert-icon"></i>
+          </div>
+          <h3 class="cert-name">Android Development in Kotlin</h3>
+          <p class="cert-org font-mono">Google Developers</p>
+        </div>
+
+        <div class="compartment cert-card spotlight-card">
+          <div class="cert-card-top">
+            <span class="cert-domain font-mono">CLOUD INFRASTRUCTURE</span>
+            <i class="fas fa-cloud cert-icon"></i>
+          </div>
+          <h3 class="cert-name">Introduction to Cloud Computing</h3>
+          <p class="cert-org font-mono">IBM Cloud</p>
+        </div>
+
+        <div class="compartment cert-card spotlight-card">
+          <div class="cert-card-top">
+            <span class="cert-domain font-mono">OPEN SOURCE</span>
+            <i class="fas fa-code-branch cert-icon"></i>
+          </div>
+          <h3 class="cert-name">OpenSource Contributor</h3>
+          <p class="cert-org font-mono">SSOC &amp; TSOC Programs</p>
+        </div>
+
+        <div class="compartment cert-card spotlight-card">
+          <div class="cert-card-top">
+            <span class="cert-domain font-mono">PROFESSIONAL</span>
+            <i class="fas fa-award cert-icon"></i>
+          </div>
+          <h3 class="cert-name">Life Skills Programme</h3>
+          <p class="cert-org font-mono">Barclays</p>
+        </div>
+
+        <div class="compartment cert-card cert-summary-card spotlight-card">
+          <div class="cert-card-top">
+            <span class="cert-domain font-mono">CONTINUOUS LEARNING</span>
+            <i class="fas fa-terminal cert-icon"></i>
+          </div>
+          <h3 class="cert-name">Marketo Engage — Build with AI</h3>
+          <p class="cert-org font-mono">Enterprise MarTech &amp; AI Workflows</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── COMPARTMENT 6: CONTACT & DIRECT CHANNELS ── -->
+    <section class="section" id="contact">
+      <div class="section-top-bar">
+        <div>
+          <span class="eyebrow font-mono">05 / CONTACT</span>
+          <h2 class="section-heading">Initiate a Conversation</h2>
+        </div>
+      </div>
+
+      <div class="contact-bento">
+
+        <!-- Left Compartment: Direct Channels -->
+        <div class="compartment contact-channels-box spotlight-card">
+          <div>
+            <h3 class="contact-box-title">Direct Channels</h3>
+            <p class="contact-box-sub">
+              Available for MarTech consulting, marketing automation roles, and full-stack software opportunities. Click email or phone to copy or connect directly.
+            </p>
+
+            <div class="direct-list">
+              <div class="direct-item">
+                <div class="direct-info">
+                  <span class="direct-lbl font-mono">EMAIL ADDRESS</span>
+                  <a href="mailto:harsh21tripathi@gmail.com" class="direct-val">harsh21tripathi@gmail.com</a>
+                </div>
+                <button class="copy-small-btn font-mono" data-copy="harsh21tripathi@gmail.com" title="Copy Email">
+                  <i class="far fa-copy"></i> Copy
+                </button>
+              </div>
+
+              <div class="direct-item">
+                <div class="direct-info">
+                  <span class="direct-lbl font-mono">PHONE / WHATSAPP</span>
+                  <a href="tel:+917982163076" class="direct-val">+91-7982163076</a>
+                </div>
+                <button class="copy-small-btn font-mono" data-copy="+91-7982163076" title="Copy Phone">
+                  <i class="far fa-copy"></i> Copy
+                </button>
+              </div>
+
+              <div class="direct-item">
+                <div class="direct-info">
+                  <span class="direct-lbl font-mono">LINKEDIN</span>
+                  <a href="https://www.linkedin.com/in/harsh-tripathi-997251239/" target="_blank" rel="noopener noreferrer" class="direct-val">in/harsh-tripathi-997251239</a>
+                </div>
+                <a href="https://www.linkedin.com/in/harsh-tripathi-997251239/" target="_blank" rel="noopener noreferrer" class="copy-small-btn font-mono">
+                  Open ↗
+                </a>
+              </div>
+
+              <div class="direct-item">
+                <div class="direct-info">
+                  <span class="direct-lbl font-mono">GITHUB</span>
+                  <a href="https://www.github.com/sahilihas" target="_blank" rel="noopener noreferrer" class="direct-val">github.com/sahilihas</a>
+                </div>
+                <a href="https://www.github.com/sahilihas" target="_blank" rel="noopener noreferrer" class="copy-small-btn font-mono">
+                  Open ↗
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="availability-footer font-mono">
+            <span>LOCATION: NEW DELHI, INDIA</span>
+            <span>RESPONSE TIME: &lt; 24 HRS</span>
+          </div>
+        </div>
+
+        <!-- Right Compartment: Message Form -->
+        <div class="compartment contact-form-box spotlight-card">
+          <h3 class="contact-box-title">Send a Direct Message</h3>
+          <form id="contactForm" class="minimal-form" novalidate>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="name" class="font-mono">FULL NAME</label>
+                <input type="text" id="name" name="name" placeholder="Alex Morgan" required />
+                <span class="field-err" id="nameError"></span>
+              </div>
+              <div class="form-field">
+                <label for="email" class="font-mono">EMAIL ADDRESS</label>
+                <input type="email" id="email" name="email" placeholder="alex@company.com" required />
+                <span class="field-err" id="emailError"></span>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="subject" class="font-mono">SUBJECT / CONTEXT</label>
+              <input type="text" id="subject" name="subject" placeholder="MarTech Consulting / Full-Time Role" required />
+              <span class="field-err" id="subjectError"></span>
+            </div>
+
+            <div class="form-field">
+              <label for="message" class="font-mono">MESSAGE</label>
+              <textarea id="message" name="message" rows="4" placeholder="Share details about the role, project, or timeline..." required></textarea>
+              <span class="field-err" id="messageError"></span>
+            </div>
+
+            <div class="form-submit-row">
+              <button type="submit" class="btn btn-primary" id="submitBtn">
+                <span>Transmit Message</span>
+                <i class="fas fa-arrow-right"></i>
+              </button>
+              <span class="form-hint font-mono">Or press <kbd>⌘K</kbd> to copy email</span>
+            </div>
+
+            <div class="form-alert hidden" id="formStatus">
+              <i class="fas fa-check-circle"></i> Message received. Thank you for reaching out!
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container footer-flex">
+      <div class="footer-left">
+        <span class="brand-mark font-mono">HT</span>
+        <span class="footer-text">© <span id="year">2026</span> Harsh Tripathi. Minimalist compartmentalised portfolio.</span>
+      </div>
+      <div class="footer-right font-mono">
+        <button class="footer-cmd-btn" id="footerCmdBtn">Press <kbd>⌘K</kbd> for Quick Actions</button>
+        <a href="#overview" class="top-link">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Main Script -->
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,798 +1,1243 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Harsh Tripathi — MarTech Consultant &amp; Software Developer</title>
-  <meta name="description" content="Portfolio of Harsh Tripathi — Associate MarTech Consultant at RightWave & Software Developer specializing in Adobe Marketo Engage, HubSpot, CRM integrations, and full-stack development." />
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio / Harsh Tripathi — Associate MarTech Consultant & Software Engineer</title>
+    <meta
+      name="description"
+      content="Portfolio of Harsh Tripathi — Associate MarTech Consultant at RightWave & Computer Science Engineer specializing in Adobe Marketo Engage, HubSpot, Salesforce CRM, Power Automate, React.js, and QA Automation."
+    />
 
-  <!-- Google Fonts: Inter + Syne -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <!-- Google Fonts: Special Gothic Expanded One + Space Grotesk + Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Special+Gothic+Expanded+One&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- AOS Animation Library -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <!-- FontAwesome & Devicons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+    />
 
-  <!-- Main CSS -->
-  <link rel="stylesheet" href="css/style.css" />
-</head>
-<body>
+    <!-- Custom Portfolio Styles -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
 
-  <!-- ══════════════════════════════════════
-       NAVBAR
-  ══════════════════════════════════════ -->
-  <header id="navbar">
-    <div class="nav-inner">
-      <a href="#home" class="logo">HT<span class="logo-dot">.</span></a>
+  <body class="theme-bg-primary">
+    <!-- =====================================================================
+         LOADING SCREEN (#loading)
+         ===================================================================== -->
+    <div id="loading" class="fixed inset-0 flex items-center justify-center">
+      <div class="loading-text flex space-x-3 md:space-x-5">
+        <span>H</span>
+        <span>A</span>
+        <span>R</span>
+        <span>S</span>
+        <span>H</span>
+      </div>
+    </div>
 
-      <nav class="nav-menu" id="navMenu">
-        <a href="#home" class="nav-link active">Home</a>
-        <a href="#about" class="nav-link">About</a>
-        <a href="#skills" class="nav-link">Skills</a>
-        <a href="#experience" class="nav-link">Experience</a>
-        <a href="#projects" class="nav-link">Projects</a>
-        <a href="#education" class="nav-link">Education</a>
-        <a href="#certifications" class="nav-link">Certifications</a>
-        <a href="#contact" class="nav-link">Contact</a>
-      </nav>
+    <!-- =====================================================================
+         RIGHT-SIDE VERTICAL SCROLL PROGRESS BAR
+         ===================================================================== -->
+    <div
+      id="scroll-bar"
+      class="fixed right-3 top-1/2 transform -translate-y-1/2 h-64 w-1.5 bg-gray-800 rounded-full z-50"
+      title="Click to jump along page"
+    >
+      <div
+        id="scroll-indicator"
+        class="w-full bg-[#1DCD9F] rounded-full h-0 transition-all duration-150"
+      ></div>
+    </div>
 
-      <div class="nav-actions">
-        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Switch to dark mode">
-          <i class="fas fa-moon" id="themeIcon"></i>
-        </button>
-        <a href="assets/Harsh_Tripathi_Resume.docx" download class="btn btn-sm btn-outline">
-          <i class="fas fa-download"></i> <span>Resume</span>
+    <!-- =====================================================================
+         TOP NAVIGATION BAR (WITH DARK / LIGHT MODE SWITCH)
+         ===================================================================== -->
+    <header class="site-navbar">
+      <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        <a href="#hero" class="nav-brand text-xl md:text-2xl font-bold flex items-center gap-2">
+          <span>HARSH</span>
+          <span class="text-[#1DCD9F]">.</span>
         </a>
-        <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
-    </div>
-  </header>
 
-  <!-- ══════════════════════════════════════
-       HERO
-  ══════════════════════════════════════ -->
-  <section id="home" class="hero">
-    <div class="hero-grid-bg"></div>
+        <nav class="hidden lg:flex items-center gap-7" aria-label="Main Navigation">
+          <a href="#about" class="nav-link">About</a>
+          <a href="#experience" class="nav-link">Experience</a>
+          <a href="#tech-stack" class="nav-link">Tech Stack</a>
+          <a href="#projects" class="nav-link">Projects</a>
+          <a href="#education" class="nav-link">Education</a>
+          <a href="#certifications" class="nav-link">Certifications</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </nav>
 
-    <div class="hero-inner">
-      <div class="hero-copy" data-aos="fade-right">
-        <div class="hero-eyebrow">
-          <span class="eyebrow-dot"></span> Available for opportunities
-        </div>
+        <div class="flex items-center gap-3">
+          <!-- Dark / Light Mode Toggle -->
+          <button
+            id="themeToggle"
+            class="theme-toggle-btn"
+            aria-label="Toggle Dark or Light Mode"
+            title="Switch Dark / Light Theme"
+          >
+            <i id="themeIcon" class="fas fa-sun text-sm"></i>
+          </button>
 
-        <h1 class="hero-heading">
-          Harsh<br />
-          <span class="heading-outline">Tripathi</span>
-        </h1>
-
-        <div class="hero-role-row">
-          <span class="role-line"></span>
-          <span>I'm a <span id="typed-text"></span><span class="blink-cursor">|</span></span>
-        </div>
-
-        <p class="hero-desc">
-          Marketing professional &amp; Computer Science engineer with hands-on experience building marketing automation workflows in <strong>Adobe Marketo Engage</strong> and <strong>HubSpot</strong>, CRM integrations, audience segmentation, and full-stack software development.
-        </p>
-
-        <div class="hero-actions">
-          <a href="#experience" class="btn btn-primary">
-            <i class="fas fa-briefcase"></i> View Experience
+          <a
+            href="assets/Harsh_Tripathi_Resume.docx"
+            download="Harsh_Tripathi_Resume.docx"
+            class="hidden sm:inline-flex items-center gap-2 bg-[#1DCD9F] text-black font-semibold px-4 py-2 rounded-lg text-sm hover:bg-[#17b890] transition-all"
+          >
+            <i class="fas fa-download text-xs"></i>
+            <span>Resume</span>
           </a>
-          <a href="#contact" class="btn btn-ghost">
-            <i class="fas fa-paper-plane"></i> Get In Touch
-          </a>
-        </div>
 
-        <div class="hero-socials">
-          <a href="https://www.linkedin.com/in/harsh-tripathi-997251239/" target="_blank" rel="noopener noreferrer" class="social-pill" title="LinkedIn">
-            <i class="fab fa-linkedin-in"></i>
-          </a>
-          <a href="https://www.github.com/sahilihas" target="_blank" rel="noopener noreferrer" class="social-pill" title="GitHub">
-            <i class="fab fa-github"></i>
-          </a>
-          <a href="mailto:harsh21tripathi@gmail.com" class="social-pill" title="Email">
-            <i class="fas fa-envelope"></i>
-          </a>
-          <a href="tel:+917982163076" class="social-pill" title="Phone">
-            <i class="fas fa-phone"></i>
-          </a>
+          <!-- Mobile Menu Button -->
+          <button
+            id="mobileMenuBtn"
+            class="lg:hidden theme-toggle-btn"
+            aria-label="Open Mobile Menu"
+          >
+            <i class="fas fa-bars text-sm"></i>
+          </button>
         </div>
       </div>
 
-      <div class="hero-visual" data-aos="fade-left" data-aos-delay="150">
-        <div class="photo-frame">
-          <img src="assets/harsh-profile.jpg" alt="Harsh Tripathi" class="hero-photo" />
-          <div class="photo-ring photo-ring-1"></div>
-          <div class="photo-ring photo-ring-2"></div>
-
-          <div class="float-chip chip-tl">
-            <i class="fas fa-bullhorn"></i>
-            <div>
-              <strong>MarTech</strong>
-              <span>Consultant</span>
-            </div>
-          </div>
-
-          <div class="float-chip chip-br">
-            <i class="fas fa-code"></i>
-            <div>
-              <strong>Full-Stack</strong>
-              <span>Developer</span>
-            </div>
-          </div>
-        </div>
+      <!-- Mobile Dropdown Menu -->
+      <div
+        id="mobileMenu"
+        class="hidden lg:hidden theme-card border-b border-gray-800 px-6 py-4 flex flex-col gap-3"
+      >
+        <a href="#about" class="nav-link py-1">About</a>
+        <a href="#experience" class="nav-link py-1">Experience</a>
+        <a href="#tech-stack" class="nav-link py-1">Tech Stack</a>
+        <a href="#projects" class="nav-link py-1">Projects</a>
+        <a href="#education" class="nav-link py-1">Education</a>
+        <a href="#certifications" class="nav-link py-1">Certifications</a>
+        <a href="#contact" class="nav-link py-1">Contact</a>
       </div>
-    </div>
+    </header>
 
-    <a href="#about" class="hero-scroll" aria-label="Scroll to About section">
-      <div class="scroll-mouse">
-        <div class="scroll-wheel"></div>
-      </div>
-    </a>
-  </section>
+    <!-- =====================================================================
+         HERO SECTION (#hero)
+         Outline-Stroke Neon Hover Heading + Interactive WebGL Line Waves
+         ===================================================================== -->
+    <section
+      id="hero"
+      class="relative min-h-screen flex items-center justify-center px-6 md:px-16 pt-24 pb-16 overflow-hidden theme-bg-primary"
+    >
+      <!-- WebGL Line Waves Background -->
+      <div id="line-waves-container"></div>
 
-  <!-- ══════════════════════════════════════
-       ABOUT
-  ══════════════════════════════════════ -->
-  <section id="about" class="section">
-    <div class="container">
-      <div class="about-layout">
-
-        <div class="about-photo-col" data-aos="fade-right">
-          <div class="about-photo-wrap">
-            <img src="assets/harsh-profile.jpg" alt="Harsh Tripathi" class="about-photo" />
-            <div class="stats-row">
-              <div class="stat-box">
-                <span class="stat-val" data-count="2">0</span><span class="stat-sym">+</span>
-                <span class="stat-label">Years Exp.</span>
-              </div>
-              <div class="stat-box">
-                <span class="stat-val" data-count="5">0</span><span class="stat-sym">+</span>
-                <span class="stat-label">Certs</span>
-              </div>
-              <div class="stat-box">
-                <span class="stat-val" data-count="3">0</span><span class="stat-sym">+</span>
-                <span class="stat-label">Projects</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="about-text-col" data-aos="fade-left">
-          <div class="section-label">About Me</div>
-          <h2 class="section-heading">Bridging Marketing Automation &amp; Software Engineering</h2>
-
-          <p>
-            I'm <strong>Harsh Tripathi</strong>, an Associate MarTech Consultant at <mark>RightWave</mark> and a Computer Science &amp; Engineering graduate from Delhi Technical Campus (CGPA 8.3).
-          </p>
-          <p>
-            I specialize in building and managing end-to-end marketing automation workflows in <mark>Adobe Marketo Engage</mark> and <mark>HubSpot</mark>, including Salesforce CRM integrations, lead scoring models, audience segmentation, and platform migration planning to <mark>Iterable</mark>.
-          </p>
-          <p>
-            Backed by a strong technical foundation in APIs, SQL, Python, React.js, TypeScript, and Kotlin, I bring engineering precision to lifecycle marketing programs, workflow automation, and quality assurance.
-          </p>
-
-          <div class="info-list">
-            <div class="info-row">
-              <i class="fas fa-map-marker-alt"></i>
-              <span>New Delhi, India</span>
-            </div>
-            <div class="info-row">
-              <i class="fas fa-envelope"></i>
-              <span>harsh21tripathi@gmail.com</span>
-            </div>
-            <div class="info-row">
-              <i class="fas fa-phone"></i>
-              <span>+91-7982163076</span>
-            </div>
-            <div class="info-row">
-              <i class="fas fa-graduation-cap"></i>
-              <span>B.Tech CSE (CGPA 8.3)</span>
-            </div>
+      <!-- Main Hero Content -->
+      <div class="relative z-10 w-full max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center">
+        <!-- Left Column -->
+        <div class="hero-left lg:col-span-7 space-y-5 text-left">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#1DCD9F]/40 bg-[#1DCD9F]/10 text-[#1DCD9F] text-xs font-semibold tracking-wider uppercase">
+            <span class="w-2 h-2 rounded-full bg-[#1DCD9F] animate-ping"></span>
+            Associate MarTech Consultant @RightWave
           </div>
 
-          <a href="assets/Harsh_Tripathi_Resume.docx" download class="btn btn-primary">
-            <i class="fas fa-download"></i> Download Resume
-          </a>
-        </div>
+          <h1 class="greeting-line text-3xl md:text-5xl leading-tight">
+            Hi, I'm
+          </h1>
 
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════
-       SKILLS — BENTO GRID & PROFICIENCY
-  ══════════════════════════════════════ -->
-  <section id="skills" class="section section-tinted">
-    <div class="container">
-      <div class="section-label" data-aos="fade-up">Capabilities</div>
-      <h2 class="section-heading" data-aos="fade-up" data-aos-delay="50">Skills &amp; Tech Stack</h2>
-
-      <div class="skills-bento" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="bento-card bento-wide accent-blue">
-          <div class="bento-icon"><i class="fas fa-bullhorn"></i></div>
-          <h3>Marketing Automation &amp; CRM</h3>
-          <div class="chip-cluster">
-            <span class="chip">Adobe Marketo Engage</span>
-            <span class="chip">HubSpot (Marketing, Content &amp; Service Hub)</span>
-            <span class="chip">Iterable</span>
-            <span class="chip">Salesforce CRM</span>
-            <span class="chip">Campaign Workflow Design</span>
-            <span class="chip">Audience Segmentation</span>
-            <span class="chip">Lead Scoring</span>
-            <span class="chip">Email Marketing</span>
-            <span class="chip">A/B Testing</span>
-            <span class="chip">Migration Planning</span>
-            <span class="chip">(Marketo) Build with AI</span>
-          </div>
-        </div>
-
-        <div class="bento-card accent-violet">
-          <div class="bento-icon"><i class="fas fa-code"></i></div>
-          <h3>Programming &amp; Dev</h3>
-          <div class="chip-cluster">
-            <span class="chip">C++</span>
-            <span class="chip">Python</span>
-            <span class="chip">JavaScript</span>
-            <span class="chip">TypeScript</span>
-            <span class="chip">React.js</span>
-            <span class="chip">HTML &amp; CSS</span>
-            <span class="chip">Kotlin</span>
-            <span class="chip">Dart / Flutter</span>
-            <span class="chip">Solidity</span>
-          </div>
-        </div>
-
-        <div class="bento-card accent-emerald">
-          <div class="bento-icon"><i class="fas fa-tools"></i></div>
-          <h3>Tools &amp; Platforms</h3>
-          <div class="chip-cluster">
-            <span class="chip">Git / GitHub</span>
-            <span class="chip">REST APIs</span>
-            <span class="chip">Postman</span>
-            <span class="chip">SQL</span>
-            <span class="chip">SharePoint</span>
-            <span class="chip">Power Automate</span>
-            <span class="chip">Zapier / N8N</span>
-            <span class="chip">Clay.io</span>
-            <span class="chip">OutSystems</span>
-            <span class="chip">Playwright &amp; Provar</span>
-            <span class="chip">Firebase</span>
-            <span class="chip">Android Studio</span>
-          </div>
-        </div>
-
-        <div class="bento-card accent-amber">
-          <div class="bento-icon"><i class="fas fa-chart-bar"></i></div>
-          <h3>Analytics &amp; QA</h3>
-          <div class="chip-cluster">
-            <span class="chip">Campaign Performance Reporting</span>
-            <span class="chip">Open Rate / CTR</span>
-            <span class="chip">EPR / ETR Reporting</span>
-            <span class="chip">CRM Data Validation</span>
-            <span class="chip">List Hygiene</span>
-            <span class="chip">Sentiment Analysis</span>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Proficiency bars -->
-      <div class="proficiency-block" data-aos="fade-up" data-aos-delay="150">
-        <h3 class="proficiency-title">Proficiency</h3>
-        <div class="bars">
-          <div class="bar-row">
-            <span class="bar-name">Adobe Marketo Engage</span>
-            <div class="bar-track"><div class="bar-fill" data-w="90"></div></div>
-            <span class="bar-pct">90%</span>
-          </div>
-          <div class="bar-row">
-            <span class="bar-name">HubSpot</span>
-            <div class="bar-track"><div class="bar-fill" data-w="85"></div></div>
-            <span class="bar-pct">85%</span>
-          </div>
-          <div class="bar-row">
-            <span class="bar-name">JavaScript / TypeScript</span>
-            <div class="bar-track"><div class="bar-fill" data-w="78"></div></div>
-            <span class="bar-pct">78%</span>
-          </div>
-          <div class="bar-row">
-            <span class="bar-name">Python</span>
-            <div class="bar-track"><div class="bar-fill" data-w="75"></div></div>
-            <span class="bar-pct">75%</span>
-          </div>
-          <div class="bar-row">
-            <span class="bar-name">Android / Kotlin</span>
-            <div class="bar-track"><div class="bar-fill" data-w="72"></div></div>
-            <span class="bar-pct">72%</span>
-          </div>
-          <div class="bar-row">
-            <span class="bar-name">React.js</span>
-            <div class="bar-track"><div class="bar-fill" data-w="70"></div></div>
-            <span class="bar-pct">70%</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════
-       EXPERIENCE — "CHRONICLES" TIMELINE
-  ══════════════════════════════════════ -->
-  <section id="experience" class="section">
-    <div class="container">
-      <div class="section-label" data-aos="fade-up">Career</div>
-      <h2 class="section-heading" data-aos="fade-up" data-aos-delay="50">Work Chronicles</h2>
-
-      <div class="chronicles">
-
-        <!-- ── Chapter 01 ── -->
-        <article class="chapter" data-aos="fade-up" data-aos-delay="100">
-          <div class="chapter-aside">
-            <span class="chapter-num">01</span>
-            <div class="chapter-vline"></div>
-          </div>
-          <div class="chapter-body">
-            <div class="chapter-head">
-              <div class="chapter-company-badge martech">
-                <i class="fas fa-bullhorn"></i>
-              </div>
-              <div class="chapter-meta">
-                <div class="chapter-period">
-                  <i class="far fa-calendar"></i> Jan 2026 – Present
-                  <span class="live-badge">● Live</span>
-                </div>
-                <h3 class="chapter-role">Associate MarTech Consultant</h3>
-                <span class="chapter-company">RightWave &nbsp;·&nbsp; Noida, India</span>
-              </div>
-              <div class="chapter-type-tag martech-tag">MarTech</div>
-            </div>
-            <div class="chapter-achievements">
-              <div class="achieve-item">
-                <div class="achieve-icon"><i class="fas fa-envelope-open-text"></i></div>
-                <p>Managed end-to-end email campaigns in <strong>Adobe Marketo Engage</strong> &amp; <strong>HubSpot</strong> — setup, scheduling, deployment, and automated nurture journeys with audience segmentation.</p>
-              </div>
-              <div class="achieve-item">
-                <div class="achieve-icon"><i class="fas fa-project-diagram"></i></div>
-                <p>Built &amp; optimized marketing automation workflows, <strong>lead scoring models</strong>, and Salesforce lead routing to streamline lifecycle marketing execution.</p>
-              </div>
-              <div class="achieve-item">
-                <div class="achieve-icon"><i class="fas fa-chart-line"></i></div>
-                <p>Monitored campaign performance through open rates, CTR, conversions, <strong>A/B testing</strong>, and EPR/ETR reporting to drive continuous optimization.</p>
-              </div>
-              <div class="achieve-item">
-                <div class="achieve-icon"><i class="fas fa-database"></i></div>
-                <p>Performed campaign QA, list management, CRM synchronization, and data validation to ensure accurate execution and reporting.</p>
-              </div>
-              <div class="achieve-item">
-                <div class="achieve-icon"><i class="fas fa-exchange-alt"></i></div>
-                <p>Supported <strong>migration planning from Marketo to Iterable</strong> — documented campaign logic, workflows, and asset inventories for seamless platform transition.</p>
-              </div>
-            </div>
-            <div class="chapter-stack">
-              <span>Marketo Engage</span>
-              <span>HubSpot</span>
-              <span>Salesforce CRM</span>
-              <span>Iterable</span>
-              <span>A/B Testing</span>
-              <span>EPR/ETR</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- ── Chapter 02 ── -->
-        <article class="chapter" data-aos="fade-up" data-aos-delay="150">
-          <div class="chapter-aside">
-            <span class="chapter-num">02</span>
-            <div class="chapter-vline"></div>
-          </div>
-          <div class="chapter-body">
-            <div class="chapter-head">
-              <div class="chapter-company-badge govt">
-                <i class="fas fa-industry"></i>
-              </div>
-              <div class="chapter-meta">
-                <div class="chapter-period">
-                  <i class="far fa-calendar"></i> Jul 2025 – Oct 2025
-                </div>
-                <h3 class="chapter-role">Graduate Apprentice Trainee</h3>
-                <span class="chapter-company">HPCL &nbsp;·&nbsp; Delhi, India</span>
-              </div>
-              <div class="chapter-type-tag govt-tag">Gov / PSU</div>
-            </div>
-            <div class="chapter-achievements">
-              <div class="achieve-item">
-                <div class="achieve-icon"><i class="fas fa-robot"></i></div>
-                <p>Engineered automated workflows for the Legal Department using <strong>SharePoint</strong> and <strong>Power Automate</strong>, reducing manual data entry and processing time significantly.</p>
-              </div>
-              <div class="achieve-item">
-                <div class="achieve-icon"><i class="fas fa-users-cog"></i></div>
-                <p>Provided operational support across IT, Strategic Planning, and Networking teams — contributing to cross-departmental initiatives and productivity improvements.</p>
-              </div>
-            </div>
-            <div class="chapter-stack">
-              <span>SharePoint</span>
-              <span>Power Automate</span>
-              <span>IT Support</span>
-              <span>Workflow Automation</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- ── Chapter 03 ── -->
-        <article class="chapter" data-aos="fade-up" data-aos-delay="200">
-          <div class="chapter-aside">
-            <span class="chapter-num">03</span>
-          </div>
-          <div class="chapter-body">
-            <div class="chapter-head">
-              <div class="chapter-company-badge dev">
-                <i class="fas fa-laptop-code"></i>
-              </div>
-              <div class="chapter-meta">
-                <div class="chapter-period">
-                  <i class="far fa-calendar"></i> Aug 2024 – Jan 2025
-                </div>
-                <h3 class="chapter-role">Software Developer Trainee</h3>
-                <span class="chapter-company">Itech Enterprises &nbsp;·&nbsp; Remote</span>
-              </div>
-              <div class="chapter-type-tag dev-tag">Dev / QA</div>
-            </div>
-            <div class="chapter-achievements">
-              <div class="achieve-item">
-                <div class="achieve-icon"><i class="fas fa-vial"></i></div>
-                <p>Performed end-to-end testing and QA using <strong>Playwright</strong> and <strong>Provar</strong> to validate automated scheduling workflows for patient appointment systems.</p>
-              </div>
-              <div class="achieve-item">
-                <div class="achieve-icon"><i class="fab fa-react"></i></div>
-                <p>Contributed to front-end development (<strong>React.js, TypeScript, Vite</strong>) on an internal web application, strengthening fluency in data-driven UI interfaces.</p>
-              </div>
-            </div>
-            <div class="chapter-stack">
-              <span>React.js</span>
-              <span>TypeScript</span>
-              <span>Vite</span>
-              <span>Playwright</span>
-              <span>Provar</span>
-              <span>QA / Testing</span>
-            </div>
-          </div>
-        </article>
-
-      </div><!-- /chronicles -->
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════
-       PROJECTS
-  ══════════════════════════════════════ -->
-  <section id="projects" class="section section-tinted">
-    <div class="container">
-      <div class="section-label" data-aos="fade-up">Portfolio</div>
-      <h2 class="section-heading" data-aos="fade-up" data-aos-delay="50">Featured Projects</h2>
-
-      <div class="projects-masonry">
-
-        <!-- Featured Project: Q Samriddhi -->
-        <article class="proj-card proj-featured" data-aos="fade-up" data-aos-delay="100">
-          <div class="proj-top">
-            <div class="proj-icon violet"><i class="fas fa-cubes"></i></div>
-            <div class="proj-links">
-              <a href="https://www.github.com/sahilihas" target="_blank" rel="noopener noreferrer" title="GitHub">
-                <i class="fab fa-github"></i>
-              </a>
-            </div>
-          </div>
-          <span class="proj-badge">Featured · Web3</span>
-          <h3>Q Samriddhi</h3>
-          <p>
-            Blockchain governance platform built with Solidity, Truffle, and Hardhat designed to transform the gaming industry by addressing centralization, transparency, and user control over digital assets.
-          </p>
-          <div class="proj-chips">
-            <span>Solidity</span>
-            <span>Truffle</span>
-            <span>Hardhat</span>
-            <span>Blockchain</span>
-            <span>Web3</span>
-          </div>
-        </article>
-
-        <!-- Project 2: Yathartha Connect -->
-        <article class="proj-card" data-aos="fade-up" data-aos-delay="150">
-          <div class="proj-top">
-            <div class="proj-icon green"><i class="fab fa-android"></i></div>
-            <div class="proj-links">
-              <a href="https://www.github.com/sahilihas" target="_blank" rel="noopener noreferrer" title="GitHub">
-                <i class="fab fa-github"></i>
-              </a>
-            </div>
-          </div>
-          <h3>Yathartha Connect</h3>
-          <p>
-            Safety-focused Android application in Kotlin featuring real-time location tracking, SOS emergency alerts, Google Maps API integration, and Firebase real-time database &amp; authentication.
-          </p>
-          <div class="proj-chips">
-            <span>Kotlin</span>
-            <span>Android SDK</span>
-            <span>Firebase</span>
-            <span>Google Maps API</span>
-          </div>
-        </article>
-
-        <!-- Project 3: Sentiment Analysis -->
-        <article class="proj-card" data-aos="fade-up" data-aos-delay="200">
-          <div class="proj-top">
-            <div class="proj-icon amber"><i class="fas fa-brain"></i></div>
-            <div class="proj-links">
-              <a href="https://www.github.com/sahilihas" target="_blank" rel="noopener noreferrer" title="Research Publication">
-                <i class="fas fa-book-open"></i>
-              </a>
-            </div>
-          </div>
-          <h3>Sentiment Analysis on "X"</h3>
-          <p>
-            Published a research paper on Sentiment Analysis of Users on "X" in the college journal, analyzing user emotions and behavioral patterns using AI and Natural Language Processing.
-          </p>
-          <div class="proj-chips">
-            <span>Python</span>
-            <span>AI / NLP</span>
-            <span>Machine Learning</span>
-            <span>Research Paper</span>
-          </div>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════
-       EDUCATION
-  ══════════════════════════════════════ -->
-  <section id="education" class="section">
-    <div class="container">
-      <div class="section-label" data-aos="fade-up">Academic Background</div>
-      <h2 class="section-heading" data-aos="fade-up" data-aos-delay="50">Education</h2>
-
-      <div class="edu-timeline">
-
-        <div class="edu-entry" data-aos="fade-up" data-aos-delay="100">
-          <div class="edu-year-col">
-            <span class="edu-year">2024</span>
-            <span class="edu-dot"></span>
-          </div>
-          <div class="edu-card">
-            <div class="edu-card-icon"><i class="fas fa-graduation-cap"></i></div>
-            <div class="edu-card-body">
-              <span class="edu-degree">B.Tech, Computer Science &amp; Engineering</span>
-              <span class="edu-inst">Delhi Technical Campus, India</span>
-              <span class="edu-period">2021 – 2024</span>
-              <div class="edu-cgpa"><i class="fas fa-star"></i> CGPA: 8.3 / 10</div>
-              <p>Focused on software engineering, data structures &amp; algorithms, database management systems, blockchain governance, and AI/NLP research.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="edu-entry" data-aos="fade-up" data-aos-delay="150">
-          <div class="edu-year-col">
-            <span class="edu-year">2021</span>
-            <span class="edu-dot"></span>
-          </div>
-          <div class="edu-card">
-            <div class="edu-card-icon"><i class="fas fa-university"></i></div>
-            <div class="edu-card-body">
-              <span class="edu-degree">Diploma in Computer Science</span>
-              <span class="edu-inst">GB Pant Institute of Technology, India</span>
-              <span class="edu-period">2018 – 2021</span>
-              <div class="edu-cgpa"><i class="fas fa-star"></i> CGPA: 8.0 / 10</div>
-              <p>Built a strong foundation in programming languages, computer networking, operating systems, and software development fundamentals.</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════
-       CERTIFICATIONS
-  ══════════════════════════════════════ -->
-  <section id="certifications" class="section section-tinted">
-    <div class="container">
-      <div class="centered">
-        <div class="section-label" data-aos="fade-up">Credentials</div>
-        <h2 class="section-heading centered" data-aos="fade-up" data-aos-delay="50">Certifications</h2>
-      </div>
-
-      <div class="certs-grid" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="cert-tile">
-          <div class="cert-tile-icon shield"><i class="fas fa-shield-alt"></i></div>
-          <div class="cert-tile-body">
-            <h4>Honeywell Cybersecurity Training</h4>
-            <span>Palo Alto Networks</span>
-          </div>
-        </div>
-
-        <div class="cert-tile">
-          <div class="cert-tile-icon android"><i class="fab fa-android"></i></div>
-          <div class="cert-tile-body">
-            <h4>Android Development in Kotlin</h4>
-            <span>Google Developers</span>
-          </div>
-        </div>
-
-        <div class="cert-tile">
-          <div class="cert-tile-icon cloud"><i class="fas fa-cloud"></i></div>
-          <div class="cert-tile-body">
-            <h4>Introduction to Cloud Computing</h4>
-            <span>IBM Cloud</span>
-          </div>
-        </div>
-
-        <div class="cert-tile">
-          <div class="cert-tile-icon oss"><i class="fas fa-code-branch"></i></div>
-          <div class="cert-tile-body">
-            <h4>OpenSource Contribution</h4>
-            <span>SSOC &amp; TSOC</span>
-          </div>
-        </div>
-
-        <div class="cert-tile">
-          <div class="cert-tile-icon life"><i class="fas fa-award"></i></div>
-          <div class="cert-tile-body">
-            <h4>Life Skills Programme</h4>
-            <span>Barclays</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════
-       CONTACT
-  ══════════════════════════════════════ -->
-  <section id="contact" class="section">
-    <div class="container">
-      <div class="section-label" data-aos="fade-up">Get In Touch</div>
-      <h2 class="section-heading" data-aos="fade-up" data-aos-delay="50">Let's Work Together</h2>
-
-      <div class="contact-layout">
-
-        <div class="contact-left" data-aos="fade-right" data-aos-delay="100">
-          <p class="contact-intro">
-            Have a question, a MarTech consulting inquiry, or a full-time opportunity? Feel free to reach out directly via any of the channels below or send a message using the form.
-          </p>
-
-          <div class="contact-links">
-            <a href="mailto:harsh21tripathi@gmail.com" class="contact-link-tile">
-              <div class="clt-icon mail"><i class="fas fa-envelope"></i></div>
-              <div>
-                <small>Email</small>
-                <strong>harsh21tripathi@gmail.com</strong>
-              </div>
-            </a>
-
-            <a href="tel:+917982163076" class="contact-link-tile">
-              <div class="clt-icon phone"><i class="fas fa-phone"></i></div>
-              <div>
-                <small>Phone</small>
-                <strong>+91-7982163076</strong>
-              </div>
-            </a>
-
-            <a href="https://www.linkedin.com/in/harsh-tripathi-997251239/" target="_blank" rel="noopener noreferrer" class="contact-link-tile">
-              <div class="clt-icon li"><i class="fab fa-linkedin-in"></i></div>
-              <div>
-                <small>LinkedIn</small>
-                <strong>Harsh Tripathi</strong>
-              </div>
-            </a>
-
-            <a href="https://www.github.com/sahilihas" target="_blank" rel="noopener noreferrer" class="contact-link-tile">
-              <div class="clt-icon gh"><i class="fab fa-github"></i></div>
-              <div>
-                <small>GitHub</small>
-                <strong>github.com/sahilihas</strong>
-              </div>
-            </a>
-          </div>
-        </div>
-
-        <div class="contact-right" data-aos="fade-left" data-aos-delay="150">
-          <form id="contactForm" class="contact-form" novalidate>
-            <div class="field-row">
-              <div class="field-group">
-                <label for="cf-name">Full Name</label>
-                <input type="text" id="cf-name" placeholder="Your Name" required />
-                <span class="field-err" id="err-name"></span>
-              </div>
-              <div class="field-group">
-                <label for="cf-email">Email Address</label>
-                <input type="email" id="cf-email" placeholder="you@example.com" required />
-                <span class="field-err" id="err-email"></span>
-              </div>
-            </div>
-
-            <div class="field-group">
-              <label for="cf-subject">Subject</label>
-              <input type="text" id="cf-subject" placeholder="How can I help you?" required />
-              <span class="field-err" id="err-subject"></span>
-            </div>
-
-            <div class="field-group">
-              <label for="cf-message">Message</label>
-              <textarea id="cf-message" rows="4" placeholder="Write your message here..." required></textarea>
-              <span class="field-err" id="err-message"></span>
-            </div>
-
-            <button type="submit" class="btn btn-primary btn-block">
-              <i class="fas fa-paper-plane"></i> Send Message
+          <!-- Signature Outline-Stroke + Neon Hover Fill Heading -->
+          <div>
+            <button class="button" data-text="HARSH TRIPATHI" onclick="document.querySelector('#about').scrollIntoView({behavior:'smooth'})">
+              <span class="actual-text">
+                <span class="solid-part">&nbsp;HARSH</span>
+                <span class="outline-part"> TRIPATHI&nbsp;</span>
+              </span>
+              <span aria-hidden="true" class="hover-text">&nbsp;HARSH TRIPATHI&nbsp;</span>
             </button>
+          </div>
 
-            <div id="form-success" class="form-success-msg hidden">
-              <i class="fas fa-check-circle"></i> Thank you! Your message has been sent successfully.
+          <p class="text-base md:text-lg theme-text-sub max-w-2xl leading-relaxed">
+            I bridge <span class="text-[#1DCD9F] font-semibold">Marketing Technology (MarTech)</span> and
+            <span class="text-[#1DCD9F] font-semibold">Software Engineering</span> — architecting automated enterprise email ecosystems, lead scoring &amp; CRM pipelines in
+            <span class="text-[#1DCD9F] font-medium">Adobe Marketo Engage</span>,
+            <span class="text-[#1DCD9F] font-medium">HubSpot</span>, and
+            <span class="text-[#1DCD9F] font-medium">Salesforce</span>, backed by hands-on experience in
+            <span class="text-[#1DCD9F] font-medium">Power Automate</span>,
+            <span class="text-[#1DCD9F] font-medium">React.js</span>, and
+            <span class="text-[#1DCD9F] font-medium">Playwright QA</span>.
+          </p>
+
+          <div class="flex flex-wrap items-center gap-4 pt-2">
+            <a href="#contact">
+              <button class="shadow__btn">
+                <span>Hire Me</span>
+                <i class="fas fa-arrow-right text-sm"></i>
+              </button>
+            </a>
+            <a href="#projects">
+              <button class="outline__btn">
+                <span>View Projects</span>
+              </button>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Column: Quick Metrics & MarTech Architecture Card -->
+        <div class="hero-right lg:col-span-5">
+          <div class="theme-card bg-[#111]/90 backdrop-blur-md border border-[#1DCD9F]/40 rounded-2xl p-6 md:p-8 shadow-2xl">
+            <div class="flex items-center justify-between border-b border-gray-800 pb-4 mb-6">
+              <div class="flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                <span class="w-3 h-3 rounded-full bg-[#1DCD9F]"></span>
+              </div>
+              <span class="text-xs font-mono text-[#1DCD9F]">harsh-tripathi.profile.ts</span>
             </div>
-          </form>
+
+            <div class="grid grid-cols-2 gap-4 mb-6">
+              <div class="p-4 rounded-xl bg-black/40 border border-gray-800 hover:border-[#1DCD9F] transition">
+                <div class="text-2xl md:text-3xl font-bold text-[#1DCD9F]">3</div>
+                <div class="text-xs theme-text-muted mt-1">Industry Roles (RightWave, HPCL, Itech)</div>
+              </div>
+              <div class="p-4 rounded-xl bg-black/40 border border-gray-800 hover:border-[#1DCD9F] transition">
+                <div class="text-2xl md:text-3xl font-bold text-[#1DCD9F]">8.3</div>
+                <div class="text-xs theme-text-muted mt-1">B.Tech CSE CGPA (Delhi Tech Campus)</div>
+              </div>
+              <div class="p-4 rounded-xl bg-black/40 border border-gray-800 hover:border-[#1DCD9F] transition">
+                <div class="text-2xl md:text-3xl font-bold text-[#1DCD9F]">Marketo</div>
+                <div class="text-xs theme-text-muted mt-1">&amp; HubSpot / Iterable Migration</div>
+              </div>
+              <div class="p-4 rounded-xl bg-black/40 border border-gray-800 hover:border-[#1DCD9F] transition">
+                <div class="text-2xl md:text-3xl font-bold text-[#1DCD9F]">5+</div>
+                <div class="text-xs theme-text-muted mt-1">Global Certifications (Google, IBM, Palo Alto)</div>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap gap-2 text-xs font-mono">
+              <span class="px-2.5 py-1 rounded bg-[#1DCD9F]/15 text-[#1DCD9F]">#AdobeMarketo</span>
+              <span class="px-2.5 py-1 rounded bg-[#1DCD9F]/15 text-[#1DCD9F]">#HubSpot</span>
+              <span class="px-2.5 py-1 rounded bg-[#1DCD9F]/15 text-[#1DCD9F]">#SalesforceCRM</span>
+              <span class="px-2.5 py-1 rounded bg-[#1DCD9F]/15 text-[#1DCD9F]">#PowerAutomate</span>
+              <span class="px-2.5 py-1 rounded bg-[#1DCD9F]/15 text-[#1DCD9F]">#ReactTS</span>
+              <span class="px-2.5 py-1 rounded bg-[#1DCD9F]/15 text-[#1DCD9F]">#Playwright</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         ABOUT SECTION (#about)
+         Grayscale-to-Color Photo + Highlighted Bio + Social Icons + Download
+         ===================================================================== -->
+    <section
+      id="about"
+      class="min-h-screen theme-bg-primary py-24 px-6 flex items-center justify-center border-t border-gray-900"
+    >
+      <div class="max-w-6xl w-full grid md:grid-cols-12 gap-12 items-center">
+        <!-- Left Side — Profile Photo -->
+        <div class="md:col-span-5 flex justify-center">
+          <div class="relative group">
+            <div class="absolute -inset-2 rounded-2xl bg-[#1DCD9F]/25 blur-lg opacity-60 group-hover:opacity-100 transition duration-500"></div>
+            <img
+              src="assets/harsh-profile.jpg"
+              alt="Harsh Tripathi"
+              class="relative rounded-2xl w-72 md:w-80 lg:w-96 object-cover shadow-2xl border-2 border-[#1DCD9F]/50 grayscale hover:grayscale-0 transition duration-500"
+            />
+          </div>
         </div>
 
+        <!-- Right Side — Bio, Socials & Download -->
+        <div class="md:col-span-7">
+          <p class="text-sm font-mono uppercase tracking-widest text-[#1DCD9F] mb-2">
+            01 // WHO I AM
+          </p>
+          <h2 class="section-heading text-3xl md:text-5xl font-bold mb-6">
+            About <span class="stroke-word">Me</span>
+          </h2>
+
+          <p class="text-base md:text-lg theme-text-sub leading-relaxed mb-4">
+            Hello! I'm <span class="text-[#1DCD9F] font-semibold">Harsh Tripathi</span>, a Computer Science &amp; Engineering graduate (<span class="text-[#1DCD9F]">B.Tech CSE, 8.3 CGPA</span>) based in
+            <span class="text-[#1DCD9F]">New Delhi, India</span>. I currently work as an
+            <span class="text-[#1DCD9F] font-semibold">Associate MarTech Consultant at RightWave</span>, where I manage end-to-end marketing automation ecosystems across
+            <span class="text-[#1DCD9F]">Adobe Marketo Engage</span>, <span class="text-[#1DCD9F]">HubSpot</span>,
+            <span class="text-[#1DCD9F]">Salesforce CRM</span>, and <span class="text-[#1DCD9F]">Iterable</span>.
+          </p>
+
+          <p class="text-base md:text-lg theme-text-sub leading-relaxed mb-8">
+            Prior to RightWave, I engineered legal department workflow automations at
+            <span class="text-[#1DCD9F] font-semibold">HPCL (Hindustan Petroleum Corporation Limited)</span> using
+            <span class="text-[#1DCD9F]">SharePoint &amp; Power Automate</span>, and worked as a
+            <span class="text-[#1DCD9F] font-semibold">Software Developer Trainee at Itech Enterprises</span> building
+            <span class="text-[#1DCD9F]">React.js + TypeScript</span> web interfaces and automated end-to-end test suites with
+            <span class="text-[#1DCD9F]">Playwright &amp; Provar</span>.
+          </p>
+
+          <!-- Social Media Animated Tooltip Icons & Download Resume Button -->
+          <div class="flex flex-wrap items-center gap-8 mt-6">
+            <ul class="example-2">
+              <li class="icon-content">
+                <a
+                  href="https://www.linkedin.com/in/harsh-tripathi-997251239/"
+                  aria-label="LinkedIn"
+                  data-social="linkedin"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <div class="filled"></div>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+                  </svg>
+                </a>
+                <div class="tooltip">LinkedIn</div>
+              </li>
+
+              <li class="icon-content">
+                <a
+                  href="https://github.com/sahilihas"
+                  aria-label="GitHub"
+                  data-social="github"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <div class="filled"></div>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/>
+                  </svg>
+                </a>
+                <div class="tooltip">GitHub</div>
+              </li>
+
+              <li class="icon-content">
+                <a
+                  href="mailto:harsh21tripathi@gmail.com"
+                  aria-label="Email"
+                  data-social="email"
+                >
+                  <div class="filled"></div>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
+                  </svg>
+                </a>
+                <div class="tooltip">Email Me</div>
+              </li>
+
+              <li class="icon-content">
+                <a
+                  href="tel:+917982163076"
+                  aria-label="Phone"
+                  data-social="phone"
+                >
+                  <div class="filled"></div>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                  </svg>
+                </a>
+                <div class="tooltip">+91-7982163076</div>
+              </li>
+            </ul>
+
+            <!-- Animated Download Resume Pill -->
+            <a
+              href="assets/Harsh_Tripathi_Resume.docx"
+              download="Harsh_Tripathi_Resume.docx"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="download-container">
+                <span class="download-label">
+                  <span class="download-circle">
+                    <svg
+                      class="download-icon"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.8"
+                        d="M12 19V5m0 14-4-4m4 4 4-4"
+                      ></path>
+                    </svg>
+                  </span>
+                  <p class="download-title">Download CV</p>
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
       </div>
+    </section>
+
+    <!-- =====================================================================
+         WORK EXPERIENCE SECTION (#experience)
+         Dedicated Work Experience Timeline (Strictly Separate from Education)
+         ===================================================================== -->
+    <section id="experience" class="theme-bg-primary py-24 px-6 border-t border-gray-900">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+          <p class="text-sm font-mono uppercase tracking-widest text-[#1DCD9F] mb-2">
+            02 // PROFESSIONAL CAREER
+          </p>
+          <h2 class="section-heading text-3xl md:text-5xl font-bold">
+            Work <span class="stroke-word">Experience</span>
+          </h2>
+          <p class="theme-text-muted mt-3 max-w-xl mx-auto">
+            My professional journey across Marketing Technology, Enterprise Automation, and Full-Stack / QA Engineering.
+          </p>
+        </div>
+
+        <div class="relative">
+          <!-- Center Vertical Line -->
+          <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-[#1DCD9F]"></div>
+
+          <!-- Role 1: RightWave (Left) -->
+          <div class="relative mb-16 md:mb-20 md:flex justify-start">
+            <div class="hidden md:block absolute w-4 h-4 bg-[#1DCD9F] rounded-full left-1/2 transform -translate-x-1/2 top-6 z-10 shadow-[0_0_15px_#1DCD9F]"></div>
+            <div class="md:w-1/2 md:pr-10">
+              <div class="bg-[#111] p-6 md:p-8 rounded-2xl border border-[#1DCD9F] shadow-lg journey-card">
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                  <span class="px-3 py-1 text-xs font-semibold rounded-full bg-[#1DCD9F]/20 text-[#1DCD9F]">
+                    Jan 2026 – Present
+                  </span>
+                  <span class="text-xs theme-text-muted">
+                    <i class="fas fa-location-dot text-[#1DCD9F] mr-1"></i>Noida, India
+                  </span>
+                </div>
+                <h3 class="text-xl md:text-2xl font-bold text-[#1DCD9F]">
+                  Associate MarTech Consultant
+                </h3>
+                <p class="text-sm font-semibold theme-text-sub mb-4">@ RightWave</p>
+
+                <ul class="space-y-2.5 text-sm theme-text-sub list-disc pl-5 mb-5">
+                  <li>
+                    Managed end-to-end email campaigns in <strong>Adobe Marketo Engage</strong> and <strong>HubSpot</strong>, including campaign setup, scheduling, deployment, nurture journeys, and audience segmentation.
+                  </li>
+                  <li>
+                    Built and optimized marketing automation workflows, lead scoring models, and lead routing processes integrated with <strong>Salesforce CRM</strong> to improve lead qualification and handoff.
+                  </li>
+                  <li>
+                    Monitored campaign performance metrics (open rates, CTR, conversions), conducted <strong>A/B testing</strong>, and created <strong>EPR/ETR performance reports</strong> to optimize email engagement and deliverability.
+                  </li>
+                  <li>
+                    Executed campaign QA, list management, CRM synchronization, and data validation to ensure accurate targeting and smooth execution of automated marketing programs.
+                  </li>
+                  <li>
+                    Contributed to migration planning from <strong>Marketo to Iterable</strong> by documenting campaign logic, workflows, and marketing asset inventories.
+                  </li>
+                </ul>
+
+                <div class="flex flex-wrap gap-2">
+                  <span class="text-xs px-2.5 py-1 rounded bg-[#1DCD9F]/10 text-[#1DCD9F] border border-[#1DCD9F]/30">Adobe Marketo Engage</span>
+                  <span class="text-xs px-2.5 py-1 rounded bg-[#1DCD9F]/10 text-[#1DCD9F] border border-[#1DCD9F]/30">HubSpot</span>
+                  <span class="text-xs px-2.5 py-1 rounded bg-[#1DCD9F]/10 text-[#1DCD9F] border border-[#1DCD9F]/30">Salesforce CRM</span>
+                  <span class="text-xs px-2.5 py-1 rounded bg-[#1DCD9F]/10 text-[#1DCD9F] border border-[#1DCD9F]/30">Iterable</span>
+                  <span class="text-xs px-2.5 py-1 rounded bg-[#1DCD9F]/10 text-[#1DCD9F] border border-[#1DCD9F]/30">A/B Testing &amp; EPR/ETR</span>
+                </div>
+              </div>
+            </div>
+            <div class="md:w-1/2"></div>
+          </div>
+
+          <!-- Role 2: HPCL (Right) -->
+          <div class="relative mb-16 md:mb-20 md:flex justify-end">
+            <div class="hidden md:block absolute w-4 h-4 bg-[#1DCD9F] rounded-full left-1/2 transform -translate-x-1/2 top-6 z-10 shadow-[0_0_15px_#1DCD9F]"></div>
+            <div class="md:w-1/2"></div>
+            <div class="md:w-1/2 md:pl-10">
+              <div class="bg-[#111] p-6 md:p-8 rounded-2xl border border-[#1DCD9F] shadow-lg journey-card">
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                  <span class="px-3 py-1 text-xs font-semibold rounded-full bg-[#1DCD9F]/20 text-[#1DCD9F]">
+                    Jul 2025 – Oct 2025
+                  </span>
+                  <span class="text-xs theme-text-muted">
+                    <i class="fas fa-location-dot text-[#1DCD9F] mr-1"></i>Delhi, India
+                  </span>
+                </div>
+                <h3 class="text-xl md:text-2xl font-bold text-[#1DCD9F]">
+                  Graduate Apprentice Trainee
+                </h3>
+                <p class="text-sm font-semibold theme-text-sub mb-4">@ HPCL (Hindustan Petroleum Corporation Ltd.)</p>
+
+                <ul class="space-y-2.5 text-sm theme-text-sub list-disc pl-5 mb-5">
+                  <li>
+                    Engineered automated workflows for the Legal Department using <strong>Microsoft SharePoint</strong> and <strong>Power Automate</strong>, streamlining internal case and document approvals.
+                  </li>
+                  <li>
+                    Provided cross-functional operational and technical support across <strong>IT, Strategic Planning, and Networking</strong> teams.
+                  </li>
+                </ul>
+
+                <div class="flex flex-wrap gap-2">
+                  <span class="text-xs px-2.5 py-1 rounded bg-[#1DCD9F]/10 text-[#1DCD9F] border border-[#1DCD9F]/30">Power Automate</span>
+                  <span class="text-xs px-2.5 py-1 rounded bg-[#1DCD9F]/10 text-[#1DCD9F] border border-[#1DCD9F]/30">SharePoint</span>
+                  <span class="text-xs px-2.5 py-1 rounded bg-[#1DCD9F]/10 text-[#1DCD9F] border border-[#1DCD9F]/30">Workflow Automation</span>
+                  <span class="text-xs px-2.5 py-1 rounded bg-[#1DCD9F]/10 text-[#1DCD9F] border border-[#1DCD9F]/30">Enterprise IT &amp; Networking</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Role 3: Itech Enterprises (Left) -->
+          <div class="relative mb-8 md:flex justify-start">
+            <div class="hidden md:block absolute w-4 h-4 bg-[#1DCD9F] rounded-full left-1/2 transform -translate-x-1/2 top-6 z-10 shadow-[0_0_15px_#1DCD9F]"></div>
+            <div class="md:w-1/2 md:pr-10">
+              <div class="bg-[#111] p-6 md:p-8 rounded-2xl border border-[#1DCD9F] shadow-lg journey-card">
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                  <span class="px-3 py-1 text-xs font-semibold rounded-full bg-[#1DCD9F]/20 text-[#1DCD9F]">
+                    Aug 2024 – Jan 2025
+                  </span>
+                  <span class="text-xs theme-text-muted">
+                    <i class="fas fa-globe text-[#1DCD9F] mr-1"></i>Remote
+                  </span>
+                </div>
+                <h3 class="text-xl md:text-2xl font-bold text-[#1DCD9F]">
+                  Software Developer Trainee
+                </h3>
+                <p class="text-sm font-semibold theme-text-sub mb-4">@ Itech Enterprises</p>
+
+                <ul class="space-y-2.5 text-sm theme-text-sub list-disc pl-5 mb-5">
+                  <li>
+                    Conducted end-to-end testing and quality assurance using <strong>Playwright</strong> and <strong>Provar</strong> for automated patient appointment scheduling workflows.
+                  </li>
+                  <li>
+                    Contributed to front-end development using <strong>React.js, TypeScript, and Vite</strong> on an internal enterprise web application.
+                  </li>
+                </ul>
+
+                <div class="flex flex-wrap gap-2">
+                  <span class="text-xs px-2.5 py-1 rounded bg-[#1DCD9F]/10 text-[#1DCD9F] border border-[#1DCD9F]/30">React.js</span>
+                  <span class="text-xs px-2.5 py-1 rounded bg-[#1DCD9F]/10 text-[#1DCD9F] border border-[#1DCD9F]/30">TypeScript</span>
+                  <span class="text-xs px-2.5 py-1 rounded bg-[#1DCD9F]/10 text-[#1DCD9F] border border-[#1DCD9F]/30">Vite</span>
+                  <span class="text-xs px-2.5 py-1 rounded bg-[#1DCD9F]/10 text-[#1DCD9F] border border-[#1DCD9F]/30">Playwright</span>
+                  <span class="text-xs px-2.5 py-1 rounded bg-[#1DCD9F]/10 text-[#1DCD9F] border border-[#1DCD9F]/30">Provar QA</span>
+                </div>
+              </div>
+            </div>
+            <div class="md:w-1/2"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         TECH STACK SECTION (#tech-stack)
+         Sticky Left Category Labels + 4-Column Grid with Real Icons
+         ===================================================================== -->
+    <section
+      id="tech-stack"
+      class="theme-bg-primary py-24 px-6 relative overflow-hidden border-t border-gray-900"
+    >
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+          <p class="text-sm font-mono uppercase tracking-widest text-[#1DCD9F] mb-2">
+            03 // CAPABILITIES &amp; PLATFORMS
+          </p>
+          <h2 class="section-heading text-3xl md:text-5xl font-bold">
+            Tech <span class="stroke-word">Stack</span>
+          </h2>
+        </div>
+
+        <div class="flex flex-col gap-16">
+          <!-- Category 1: MARTECH & CRM -->
+          <div class="flex md:flex-row flex-col gap-8 items-start" id="martech-stack">
+            <div class="w-full md:w-1/5 text-gray-400 text-lg font-bold sticky top-24">
+              <div class="category-label cursor-pointer hover:text-[#1DCD9F] transition tracking-wider">
+                MARTECH &amp; CRM
+              </div>
+            </div>
+            <div class="w-full md:w-4/5 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+              <div class="tech-item flex items-center gap-3">
+                <i class="fas fa-bullseye text-[#1DCD9F] text-xl"></i>
+                <span class="text-base font-medium">Adobe Marketo</span>
+              </div>
+              <div class="tech-item flex items-center gap-3">
+                <i class="fab fa-hubspot text-[#ff7a59] text-xl"></i>
+                <span class="text-base font-medium">HubSpot CRM</span>
+              </div>
+              <div class="tech-item flex items-center gap-3">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/salesforce/salesforce-original.svg" class="w-6 h-6" alt="Salesforce" />
+                <span class="text-base font-medium">Salesforce</span>
+              </div>
+              <div class="tech-item flex items-center gap-3">
+                <i class="fas fa-paper-plane text-[#1DCD9F] text-xl"></i>
+                <span class="text-base font-medium">Iterable</span>
+              </div>
+              <div class="tech-item flex items-center gap-3">
+                <i class="fas fa-filter text-[#1DCD9F] text-xl"></i>
+                <span class="text-base font-medium">Lead Scoring</span>
+              </div>
+              <div class="tech-item flex items-center gap-3">
+                <i class="fas fa-envelope-open-text text-[#1DCD9F] text-xl"></i>
+                <span class="text-base font-medium">Nurture Flows</span>
+              </div>
+              <div class="tech-item flex items-center gap-3">
+                <i class="fas fa-vial text-[#1DCD9F] text-xl"></i>
+                <span class="text-base font-medium">A/B Testing</span>
+              </div>
+              <div class="tech-item flex items-center gap-3">
+                <i class="fas fa-chart-line text-[#1DCD9F] text-xl"></i>
+                <span class="text-base font-medium">EPR / ETR Analytics</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Category 2: FRONTEND & LANGUAGES -->
+          <div class="flex md:flex-row flex-col gap-8 items-start" id="frontend-stack">
+            <div class="w-full md:w-1/5 text-gray-400 text-lg font-bold sticky top-24">
+              <div class="category-label cursor-pointer hover:text-[#1DCD9F] transition tracking-wider">
+                LANGUAGES &amp; DEV
+              </div>
+            </div>
+            <div class="w-full md:w-4/5 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+              <div class="tech-item flex items-center gap-3">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" class="w-6 h-6" alt="React" />
+                <span class="text-base font-medium">React.js</span>
+              </div>
+              <div class="tech-item flex items-center gap-3">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" class="w-6 h-6" alt="TypeScript" />
+                <span class="text-base font-medium">TypeScript</span>
+              </div>
+              <div class="tech-item flex items-center gap-3">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" class="w-6 h-6" alt="JavaScript" />
+                <span class="text-base font-medium">JavaScript</span>
+              </div>
+              <div class="tech-item flex items-center gap-3">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kotlin/kotlin-original.svg" class="w-6 h-6" alt="Kotlin" />
+                <span class="text-base font-medium">Kotlin</span>
+              </div>
+              <div class="tech-item flex items-center gap-3">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/solidity/solidity-original.svg" class="w-6 h-6 bg-white rounded p-0.5" alt="Solidity" />
+                <span class="text-base font-medium">Solidity</span>
+              </div>
+              <div class="tech-item flex items-center gap-3">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" class="w-6 h-6" alt="Python" />
+                <span class="text-base font-medium">Python</span>
+              </div>
+              <div class="tech-item flex items-center gap-3">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" class="w-6 h-6" alt="HTML5" />
+                <span class="text-base font-medium">HTML5</span>
+              </div>
+              <div class="tech-item flex items-center gap-3">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" class="w-6 h-6" alt="CSS3" />
+                <span class="text-base font-medium">CSS3 / Tailwind</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Category 3: AUTOMATION & QA -->
+          <div class="flex md:flex-row flex-col gap-8 items-start" id="automation-stack">
+            <div class="w-full md:w-1/5 text-gray-400 text-lg font-bold sticky top-24">
+              <div class="category-label cursor-pointer hover:text-[#1DCD9F] transition tracking-wider">
+                AUTOMATION &amp; QA
+              </div>
+            </div>
+            <div class="w-full md:w-4/5 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+              <div class="tech-item flex items-center gap-3">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/playwright/playwright-original.svg" class="w-6 h-6" alt="Playwright" />
+                <span class="text-base font-medium">Playwright</span>
+              </div>
+              <div class="tech-item flex items-center gap-3">
+                <i class="fas fa-vial-circle-check text-[#1DCD9F] text-xl"></i>
+                <span class="text-base font-medium">Provar Testing</span>
+              </div>
+              <div class="tech-item flex items-center gap-3">
+                <i class="fas fa-bolt text-[#0066ff] text-xl"></i>
+                <span class="text-base font-medium">Power Automate</span>
+              </div>
+              <div class="tech-item flex items-center gap-3">
+                <i class="fas fa-share-nodes text-[#038387] text-xl"></i>
+                <span class="text-base font-medium">SharePoint</span>
+              </div>
+              <div class="tech-item flex items-center gap-3">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/hardhat/hardhat-original.svg" class="w-6 h-6" alt="Hardhat" />
+                <span class="text-base font-medium">Hardhat &amp; Truffle</span>
+              </div>
+              <div class="tech-item flex items-center gap-3">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original.svg" class="w-6 h-6" alt="Firebase" />
+                <span class="text-base font-medium">Firebase</span>
+              </div>
+              <div class="tech-item flex items-center gap-3">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/Vite/Vite-original.svg" onerror="this.src='https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg'" class="w-6 h-6" alt="Vite" />
+                <span class="text-base font-medium">Vite</span>
+              </div>
+              <div class="tech-item flex items-center gap-3">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" class="w-6 h-6" alt="Git" />
+                <span class="text-base font-medium">Git &amp; GitHub</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         PROJECTS SECTION (#projects)
+         Modeled directly after https://abhijeetbhale.github.io/Portfolio/#projects
+         ===================================================================== -->
+    <section
+      id="projects"
+      class="relative theme-bg-primary py-24 px-6 overflow-hidden border-t border-gray-900"
+    >
+      <!-- PARTICLES BACKGROUND -->
+      <div id="particles-projects" class="absolute top-0 left-0 w-full h-full z-0"></div>
+
+      <!-- ACTUAL PROJECT CONTENT -->
+      <div class="relative z-10">
+        <div class="max-w-6xl mx-auto text-center mb-14">
+          <p class="text-sm font-mono uppercase tracking-widest text-[#1DCD9F] mb-2">
+            04 // FEATURED WORK
+          </p>
+          <h2 class="section-heading text-3xl md:text-5xl font-bold mb-4">
+            Featured <span class="stroke-word">Projects</span>
+          </h2>
+          <p class="theme-text-muted text-lg">
+            Some of the mobile applications, Web3 platforms, and AI research projects I've built.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
+          <!-- PROJECT CARD 1: Yathartha Connect -->
+          <div class="project-card bg-white text-black shadow-xl rounded-2xl overflow-hidden transform hover:scale-[1.02] transition-all duration-300 flex flex-col">
+            <!-- Rich Visual Preview Header -->
+            <div class="w-full h-56 bg-gradient-to-br from-[#071a15] via-[#0d2f26] to-[#1DCD9F]/80 relative flex items-center justify-center p-6 overflow-hidden">
+              <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+              <div class="relative z-10 text-center text-white">
+                <div class="w-16 h-16 mx-auto mb-3 rounded-2xl bg-[#1DCD9F]/20 border border-[#1DCD9F] flex items-center justify-center shadow-lg">
+                  <i class="fas fa-location-crosshairs text-3xl text-[#1DCD9F]"></i>
+                </div>
+                <span class="px-3 py-1 rounded-full text-xs font-mono bg-black/50 text-[#1DCD9F] border border-[#1DCD9F]/40">
+                  Android Safety App • Real-Time SOS
+                </span>
+              </div>
+            </div>
+
+            <div class="p-6 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="text-2xl font-bold mb-2 text-gray-900">Yathartha Connect</h3>
+                <p class="text-gray-700 text-sm leading-relaxed mb-4">
+                  A safety-focused Android mobile application engineered with real-time GPS location tracking, emergency SOS alerts, live route sharing via Google Maps API, and cloud synchronization powered by Firebase.
+                </p>
+
+                <!-- Tech Stack Badges -->
+                <div class="flex flex-wrap gap-2 mb-6">
+                  <span class="flex items-center gap-1.5 bg-gray-100 text-gray-800 px-2.5 py-1 text-xs font-medium rounded">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kotlin/kotlin-original.svg" alt="Kotlin" class="w-4 h-4" />
+                    Kotlin
+                  </span>
+                  <span class="flex items-center gap-1.5 bg-gray-100 text-gray-800 px-2.5 py-1 text-xs font-medium rounded">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/android/android-original.svg" alt="Android" class="w-4 h-4" />
+                    Android SDK
+                  </span>
+                  <span class="flex items-center gap-1.5 bg-gray-100 text-gray-800 px-2.5 py-1 text-xs font-medium rounded">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original.svg" alt="Firebase" class="w-4 h-4" />
+                    Firebase
+                  </span>
+                  <span class="flex items-center gap-1.5 bg-gray-100 text-gray-800 px-2.5 py-1 text-xs font-medium rounded">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg" alt="Google Maps API" class="w-4 h-4" />
+                    Google Maps API
+                  </span>
+                </div>
+              </div>
+
+              <!-- Project Links -->
+              <div class="flex gap-3 pt-2">
+                <a
+                  href="https://github.com/sahilihas"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="bg-[#1DCD9F] text-white font-semibold px-4 py-2 rounded hover:bg-[#17b890] transition-all text-sm flex items-center gap-1.5"
+                >
+                  <i class="fas fa-arrow-up-right-from-square text-xs"></i>
+                  Overview
+                </a>
+                <a
+                  href="https://github.com/sahilihas"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="bg-gray-800 text-white font-semibold px-4 py-2 rounded hover:bg-gray-700 transition-all text-sm flex items-center gap-1.5"
+                >
+                  <i class="fab fa-github"></i>
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- PROJECT CARD 2: Q Samriddhi -->
+          <div class="project-card bg-white text-black shadow-xl rounded-2xl overflow-hidden transform hover:scale-[1.02] transition-all duration-300 flex flex-col">
+            <!-- Rich Visual Preview Header -->
+            <div class="w-full h-56 bg-gradient-to-br from-[#0f172a] via-[#1e1b4b] to-[#1DCD9F]/70 relative flex items-center justify-center p-6 overflow-hidden">
+              <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+              <div class="relative z-10 text-center text-white">
+                <div class="w-16 h-16 mx-auto mb-3 rounded-2xl bg-[#1DCD9F]/20 border border-[#1DCD9F] flex items-center justify-center shadow-lg">
+                  <i class="fas fa-cubes text-3xl text-[#1DCD9F]"></i>
+                </div>
+                <span class="px-3 py-1 rounded-full text-xs font-mono bg-black/50 text-[#1DCD9F] border border-[#1DCD9F]/40">
+                  Web3 Governance • Smart Contracts
+                </span>
+              </div>
+            </div>
+
+            <div class="p-6 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="text-2xl font-bold mb-2 text-gray-900">Q Samriddhi</h3>
+                <p class="text-gray-700 text-sm leading-relaxed mb-4">
+                  A decentralized blockchain governance platform built to transform the gaming industry by addressing centralization, asset transparency, and player-driven control through verifiable smart contracts.
+                </p>
+
+                <!-- Tech Stack Badges -->
+                <div class="flex flex-wrap gap-2 mb-6">
+                  <span class="flex items-center gap-1.5 bg-gray-100 text-gray-800 px-2.5 py-1 text-xs font-medium rounded">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/solidity/solidity-original.svg" alt="Solidity" class="w-4 h-4" />
+                    Solidity
+                  </span>
+                  <span class="flex items-center gap-1.5 bg-gray-100 text-gray-800 px-2.5 py-1 text-xs font-medium rounded">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/hardhat/hardhat-original.svg" alt="Hardhat" class="w-4 h-4" />
+                    Hardhat
+                  </span>
+                  <span class="flex items-center gap-1.5 bg-gray-100 text-gray-800 px-2.5 py-1 text-xs font-medium rounded">
+                    <i class="fas fa-link text-[#1DCD9F]"></i>
+                    Truffle Suite
+                  </span>
+                  <span class="flex items-center gap-1.5 bg-gray-100 text-gray-800 px-2.5 py-1 text-xs font-medium rounded">
+                    <i class="fab fa-ethereum text-indigo-600"></i>
+                    Blockchain
+                  </span>
+                </div>
+              </div>
+
+              <!-- Project Links -->
+              <div class="flex gap-3 pt-2">
+                <a
+                  href="https://github.com/sahilihas"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="bg-[#1DCD9F] text-white font-semibold px-4 py-2 rounded hover:bg-[#17b890] transition-all text-sm flex items-center gap-1.5"
+                >
+                  <i class="fas fa-arrow-up-right-from-square text-xs"></i>
+                  Overview
+                </a>
+                <a
+                  href="https://github.com/sahilihas"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="bg-gray-800 text-white font-semibold px-4 py-2 rounded hover:bg-gray-700 transition-all text-sm flex items-center gap-1.5"
+                >
+                  <i class="fab fa-github"></i>
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- PROJECT CARD 3: Sentiment Analysis of Users on "X" -->
+          <div class="project-card bg-white text-black shadow-xl rounded-2xl overflow-hidden transform hover:scale-[1.02] transition-all duration-300 flex flex-col">
+            <!-- Rich Visual Preview Header -->
+            <div class="w-full h-56 bg-gradient-to-br from-[#111827] via-[#064e3b] to-[#1DCD9F]/80 relative flex items-center justify-center p-6 overflow-hidden">
+              <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+              <div class="relative z-10 text-center text-white">
+                <div class="w-16 h-16 mx-auto mb-3 rounded-2xl bg-[#1DCD9F]/20 border border-[#1DCD9F] flex items-center justify-center shadow-lg">
+                  <i class="fas fa-brain text-3xl text-[#1DCD9F]"></i>
+                </div>
+                <span class="px-3 py-1 rounded-full text-xs font-mono bg-black/50 text-[#1DCD9F] border border-[#1DCD9F]/40">
+                  Published Research • AI &amp; NLP
+                </span>
+              </div>
+            </div>
+
+            <div class="p-6 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="text-2xl font-bold mb-2 text-gray-900">
+                  Sentiment Analysis of Users on "X"
+                </h3>
+                <p class="text-gray-700 text-sm leading-relaxed mb-4">
+                  Published research paper in the college academic journal investigating real-world user emotions and polarity trends on "X" (formerly Twitter) using Artificial Intelligence and Natural Language Processing pipelines.
+                </p>
+
+                <!-- Tech Stack Badges -->
+                <div class="flex flex-wrap gap-2 mb-6">
+                  <span class="flex items-center gap-1.5 bg-gray-100 text-gray-800 px-2.5 py-1 text-xs font-medium rounded">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python" class="w-4 h-4" />
+                    Python
+                  </span>
+                  <span class="flex items-center gap-1.5 bg-gray-100 text-gray-800 px-2.5 py-1 text-xs font-medium rounded">
+                    <i class="fas fa-microchip text-[#1DCD9F]"></i>
+                    NLP &amp; AI
+                  </span>
+                  <span class="flex items-center gap-1.5 bg-gray-100 text-gray-800 px-2.5 py-1 text-xs font-medium rounded">
+                    <i class="fas fa-chart-pie text-emerald-600"></i>
+                    Sentiment Polarity
+                  </span>
+                  <span class="flex items-center gap-1.5 bg-gray-100 text-gray-800 px-2.5 py-1 text-xs font-medium rounded">
+                    <i class="fas fa-book-open text-amber-600"></i>
+                    Journal Publication
+                  </span>
+                </div>
+              </div>
+
+              <!-- Project Links -->
+              <div class="flex gap-3 pt-2">
+                <a
+                  href="#contact"
+                  class="bg-[#1DCD9F] text-white font-semibold px-4 py-2 rounded hover:bg-[#17b890] transition-all text-sm flex items-center gap-1.5"
+                >
+                  <i class="fas fa-file-lines text-xs"></i>
+                  Paper Details
+                </a>
+                <a
+                  href="https://github.com/sahilihas"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="bg-gray-800 text-white font-semibold px-4 py-2 rounded hover:bg-gray-700 transition-all text-sm flex items-center gap-1.5"
+                >
+                  <i class="fab fa-github"></i>
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         EDUCATION SECTION (#education)
+         Strictly Dedicated Section for Academic Degrees
+         ===================================================================== -->
+    <section id="education" class="theme-bg-primary py-24 px-6 border-t border-gray-900">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-14">
+          <p class="text-sm font-mono uppercase tracking-widest text-[#1DCD9F] mb-2">
+            05 // ACADEMIC BACKGROUND
+          </p>
+          <h2 class="section-heading text-3xl md:text-5xl font-bold">
+            My <span class="stroke-word">Education</span>
+          </h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <!-- Degree 1: B.Tech CSE -->
+          <div class="edu-card theme-card bg-[#111] p-8 rounded-2xl border border-[#1DCD9F] shadow-lg flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-4">
+                <span class="px-3 py-1 text-xs font-semibold rounded-full bg-[#1DCD9F]/20 text-[#1DCD9F]">
+                  2021 – 2024
+                </span>
+                <span class="px-3 py-1 text-xs font-bold rounded-full bg-[#1DCD9F] text-black">
+                  CGPA: 8.3 / 10
+                </span>
+              </div>
+              <h3 class="text-xl md:text-2xl font-bold text-[#1DCD9F] mb-2">
+                Bachelor of Technology (B.Tech) in Computer Science &amp; Engineering
+              </h3>
+              <p class="text-base font-medium theme-text-sub mb-3">
+                <i class="fas fa-university text-[#1DCD9F] mr-2"></i>Delhi Technical Campus, India
+              </p>
+              <p class="text-sm theme-text-muted leading-relaxed">
+                Focused on Software Engineering, Data Structures &amp; Algorithms, Artificial Intelligence &amp; NLP Research, Android Development, and Blockchain Systems.
+              </p>
+            </div>
+          </div>
+
+          <!-- Degree 2: Diploma in Computer Science -->
+          <div class="edu-card theme-card bg-[#111] p-8 rounded-2xl border border-[#1DCD9F] shadow-lg flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-4">
+                <span class="px-3 py-1 text-xs font-semibold rounded-full bg-[#1DCD9F]/20 text-[#1DCD9F]">
+                  2018 – 2021
+                </span>
+                <span class="px-3 py-1 text-xs font-bold rounded-full bg-[#1DCD9F] text-black">
+                  CGPA: 8.0 / 10
+                </span>
+              </div>
+              <h3 class="text-xl md:text-2xl font-bold text-[#1DCD9F] mb-2">
+                Diploma in Computer Science
+              </h3>
+              <p class="text-base font-medium theme-text-sub mb-3">
+                <i class="fas fa-graduation-cap text-[#1DCD9F] mr-2"></i>GB Pant Institute of Technology, India
+              </p>
+              <p class="text-sm theme-text-muted leading-relaxed">
+                Built strong foundations in Computer Networks, Database Management Systems, Object-Oriented Programming, and Web Technologies.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         CERTIFICATIONS SECTION (#certifications)
+         Dedicated Section for Harsh's 5 Credentials
+         ===================================================================== -->
+    <section id="certifications" class="theme-bg-primary py-24 px-6 border-t border-gray-900">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-14">
+          <p class="text-sm font-mono uppercase tracking-widest text-[#1DCD9F] mb-2">
+            06 // LICENSES &amp; CREDENTIALS
+          </p>
+          <h2 class="section-heading text-3xl md:text-5xl font-bold">
+            Verified <span class="stroke-word">Certifications</span>
+          </h2>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Cert 1 -->
+          <div class="cert-card theme-card bg-[#111] p-6 rounded-2xl border border-gray-800 hover:border-[#1DCD9F]">
+            <div class="w-12 h-12 rounded-xl bg-[#1DCD9F]/15 text-[#1DCD9F] flex items-center justify-center text-xl mb-4">
+              <i class="fas fa-shield-halved"></i>
+            </div>
+            <h3 class="text-lg font-bold mb-1">Honeywell Cybersecurity Training</h3>
+            <p class="text-sm text-[#1DCD9F] font-medium mb-2">Palo Alto Networks</p>
+            <p class="text-xs theme-text-muted">
+              Enterprise network security, threat prevention, and cybersecurity architecture fundamentals.
+            </p>
+          </div>
+
+          <!-- Cert 2 -->
+          <div class="cert-card theme-card bg-[#111] p-6 rounded-2xl border border-gray-800 hover:border-[#1DCD9F]">
+            <div class="w-12 h-12 rounded-xl bg-[#1DCD9F]/15 text-[#1DCD9F] flex items-center justify-center text-xl mb-4">
+              <i class="fab fa-android"></i>
+            </div>
+            <h3 class="text-lg font-bold mb-1">Android Development in Kotlin</h3>
+            <p class="text-sm text-[#1DCD9F] font-medium mb-2">Google Developers</p>
+            <p class="text-xs theme-text-muted">
+              Native Android app architecture, Kotlin coroutines, Jetpack components, and Material UI.
+            </p>
+          </div>
+
+          <!-- Cert 3 -->
+          <div class="cert-card theme-card bg-[#111] p-6 rounded-2xl border border-gray-800 hover:border-[#1DCD9F]">
+            <div class="w-12 h-12 rounded-xl bg-[#1DCD9F]/15 text-[#1DCD9F] flex items-center justify-center text-xl mb-4">
+              <i class="fas fa-cloud"></i>
+            </div>
+            <h3 class="text-lg font-bold mb-1">Introduction to Cloud Computing</h3>
+            <p class="text-sm text-[#1DCD9F] font-medium mb-2">IBM Cloud</p>
+            <p class="text-xs theme-text-muted">
+              Cloud infrastructure models (IaaS, PaaS, SaaS), virtualization, and cloud-native deployment.
+            </p>
+          </div>
+
+          <!-- Cert 4 -->
+          <div class="cert-card theme-card bg-[#111] p-6 rounded-2xl border border-gray-800 hover:border-[#1DCD9F]">
+            <div class="w-12 h-12 rounded-xl bg-[#1DCD9F]/15 text-[#1DCD9F] flex items-center justify-center text-xl mb-4">
+              <i class="fas fa-code-branch"></i>
+            </div>
+            <h3 class="text-lg font-bold mb-1">OpenSource Contribution</h3>
+            <p class="text-sm text-[#1DCD9F] font-medium mb-2">SSOC &amp; TSOC</p>
+            <p class="text-xs theme-text-muted">
+              Active open-source contributor recognized across Social Summer of Code &amp; The Script Foundation.
+            </p>
+          </div>
+
+          <!-- Cert 5 -->
+          <div class="cert-card theme-card bg-[#111] p-6 rounded-2xl border border-gray-800 hover:border-[#1DCD9F]">
+            <div class="w-12 h-12 rounded-xl bg-[#1DCD9F]/15 text-[#1DCD9F] flex items-center justify-center text-xl mb-4">
+              <i class="fas fa-handshake"></i>
+            </div>
+            <h3 class="text-lg font-bold mb-1">Life Skills Programme</h3>
+            <p class="text-sm text-[#1DCD9F] font-medium mb-2">Barclays</p>
+            <p class="text-xs theme-text-muted">
+              Corporate communication, agile problem-solving, leadership, and workplace readiness.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         GITHUB ACTIVITY SECTION (#github-activity)
+         ===================================================================== -->
+    <section id="github-activity" class="theme-bg-secondary py-20 px-6 border-t border-gray-900">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="section-heading text-3xl md:text-4xl font-bold mb-3">
+            GitHub <span class="stroke-word">Activity</span>
+          </h2>
+          <p class="theme-text-muted">Live repository statistics for @sahilihas</p>
+        </div>
+
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="theme-card bg-[#111] p-6 rounded-2xl text-center border border-gray-800 hover:border-[#1DCD9F] transition-all">
+            <div class="text-3xl font-bold text-[#1DCD9F] mb-1" id="githubRepos">10+</div>
+            <div class="text-sm theme-text-muted">Public Repositories</div>
+          </div>
+          <div class="theme-card bg-[#111] p-6 rounded-2xl text-center border border-gray-800 hover:border-[#1DCD9F] transition-all">
+            <div class="text-3xl font-bold text-[#1DCD9F] mb-1" id="githubStars">5+</div>
+            <div class="text-sm theme-text-muted">Total Stars</div>
+          </div>
+          <div class="theme-card bg-[#111] p-6 rounded-2xl text-center border border-gray-800 hover:border-[#1DCD9F] transition-all">
+            <div class="text-3xl font-bold text-[#1DCD9F] mb-1" id="githubFollowers">10+</div>
+            <div class="text-sm theme-text-muted">Followers</div>
+          </div>
+          <div class="theme-card bg-[#111] p-6 rounded-2xl text-center border border-gray-800 hover:border-[#1DCD9F] transition-all">
+            <div class="text-3xl font-bold text-[#1DCD9F] mb-1">2026</div>
+            <div class="text-sm theme-text-muted">Active Contributor</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         CONTACT SECTION (#contact)
+         ===================================================================== -->
+    <section id="contact" class="theme-bg-primary py-24 px-6 border-t border-gray-900">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-14">
+          <p class="text-sm font-mono uppercase tracking-widest text-[#1DCD9F] mb-2">
+            07 // GET IN TOUCH
+          </p>
+          <h2 class="section-heading text-3xl md:text-5xl font-bold mb-4">
+            Let's <span class="stroke-word">Connect</span>
+          </h2>
+          <p class="theme-text-muted text-lg">
+            Open to MarTech Consulting, Marketing Automation, and Software Engineering opportunities.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-12 gap-10 items-start mb-16">
+          <!-- Direct Contact Info -->
+          <div class="md:col-span-5 space-y-5">
+            <div class="theme-card bg-[#111] p-6 rounded-2xl border border-gray-800 hover:border-[#1DCD9F] transition">
+              <div class="text-xs font-mono text-[#1DCD9F] uppercase mb-1">Email</div>
+              <a href="mailto:harsh21tripathi@gmail.com" class="text-lg font-semibold hover:text-[#1DCD9F] transition break-all">
+                harsh21tripathi@gmail.com
+              </a>
+            </div>
+
+            <div class="theme-card bg-[#111] p-6 rounded-2xl border border-gray-800 hover:border-[#1DCD9F] transition">
+              <div class="text-xs font-mono text-[#1DCD9F] uppercase mb-1">Phone</div>
+              <a href="tel:+917982163076" class="text-lg font-semibold hover:text-[#1DCD9F] transition">
+                +91-7982163076
+              </a>
+            </div>
+
+            <div class="theme-card bg-[#111] p-6 rounded-2xl border border-gray-800 hover:border-[#1DCD9F] transition">
+              <div class="text-xs font-mono text-[#1DCD9F] uppercase mb-1">Location</div>
+              <p class="text-lg font-semibold">New Delhi / Noida, India</p>
+            </div>
+          </div>
+
+          <!-- Interactive Contact Form -->
+          <div class="md:col-span-7">
+            <form id="contactForm" class="contact-form theme-card bg-[#111] p-8 rounded-2xl border border-gray-800 space-y-5">
+              <div class="grid sm:grid-cols-2 gap-5">
+                <div>
+                  <label class="block text-xs font-mono uppercase text-[#1DCD9F] mb-2" for="senderName">Your Name</label>
+                  <input
+                    type="text"
+                    id="senderName"
+                    required
+                    placeholder="John Doe"
+                    class="w-full px-4 py-3 rounded-lg bg-black/50 border border-gray-700 text-white placeholder-gray-500"
+                  />
+                </div>
+                <div>
+                  <label class="block text-xs font-mono uppercase text-[#1DCD9F] mb-2" for="senderEmail">Your Email</label>
+                  <input
+                    type="email"
+                    id="senderEmail"
+                    required
+                    placeholder="john@company.com"
+                    class="w-full px-4 py-3 rounded-lg bg-black/50 border border-gray-700 text-white placeholder-gray-500"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-mono uppercase text-[#1DCD9F] mb-2" for="senderSubject">Subject</label>
+                <input
+                  type="text"
+                  id="senderSubject"
+                  required
+                  placeholder="MarTech / Engineering Opportunity"
+                  class="w-full px-4 py-3 rounded-lg bg-black/50 border border-gray-700 text-white placeholder-gray-500"
+                />
+              </div>
+
+              <div>
+                <label class="block text-xs font-mono uppercase text-[#1DCD9F] mb-2" for="senderMessage">Message</label>
+                <textarea
+                  id="senderMessage"
+                  rows="4"
+                  required
+                  placeholder="Hi Harsh, I'd love to connect regarding..."
+                  class="w-full px-4 py-3 rounded-lg bg-black/50 border border-gray-700 text-white placeholder-gray-500"
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                class="w-full bg-[#1DCD9F] text-black py-3.5 px-6 rounded-lg font-bold hover:bg-[#17b890] transition-all duration-300 transform hover:scale-[1.01]"
+              >
+                Send Message via Email
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Reference-Style Footer Callout -->
+        <div class="text-center flex flex-col items-center gap-5 pt-8 border-t border-gray-900">
+          <p class="theme-text-muted text-lg">Let's connect and build something amazing!</p>
+          <a href="mailto:harsh21tripathi@gmail.com" class="hover:text-[#1DCD9F] transition">
+            <h3 class="text-2xl sm:text-4xl font-bold break-all">harsh21tripathi@gmail.com</h3>
+          </a>
+
+          <a
+            href="https://github.com/sahilihas/Harsh-Tripathi-Portfolio"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#111] border border-gray-800 hover:border-[#1DCD9F] text-white text-sm font-medium transition"
+          >
+            <i class="fab fa-github text-base"></i>
+            <span>Star on GitHub</span>
+            <i class="fas fa-star text-yellow-400 text-xs ml-1"></i>
+          </a>
+
+          <p class="text-xs theme-text-muted pt-4">
+            &copy; 2026 Harsh Tripathi. Crafted with clean modular code.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Fixed Left-Side Vertical Email -->
+    <a
+      href="mailto:harsh21tripathi@gmail.com?subject=Let's Connect&body=Hi Harsh,%0D%0A%0D%0AI wanted to get in touch with you..."
+      class="fixed-email"
+      title="Mail Harsh Tripathi"
+    >
+      harsh21tripathi@gmail.com
+    </a>
+
+    <!-- Back to Top Button -->
+    <div class="wrapper">
+      <button class="back2top-button" id="backToTop" aria-label="Back to Top">
+        <svg class="svgIcon" viewBox="0 0 384 512">
+          <path
+            d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"
+          />
+        </svg>
+        <span class="button-label">Back to Top</span>
+      </button>
     </div>
-  </section>
 
-  <!-- ══════════════════════════════════════
-       FOOTER
-  ══════════════════════════════════════ -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-top">
-        <div class="footer-brand">
-          <a href="#home" class="logo">HT<span class="logo-dot">.</span></a>
-          <p>Associate MarTech Consultant &amp; Software Developer</p>
-        </div>
+    <!-- External Animation Libraries (GSAP + ScrollTrigger + Particles.js) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
-        <div class="footer-nav">
-          <a href="#home">Home</a>
-          <a href="#about">About</a>
-          <a href="#skills">Skills</a>
-          <a href="#experience">Experience</a>
-          <a href="#projects">Projects</a>
-          <a href="#education">Education</a>
-          <a href="#contact">Contact</a>
-        </div>
-
-        <div class="footer-social">
-          <a href="https://www.linkedin.com/in/harsh-tripathi-997251239/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-            <i class="fab fa-linkedin-in"></i>
-          </a>
-          <a href="https://www.github.com/sahilihas" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-            <i class="fab fa-github"></i>
-          </a>
-          <a href="mailto:harsh21tripathi@gmail.com" aria-label="Email">
-            <i class="fas fa-envelope"></i>
-          </a>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <p>&copy; <span id="year">2026</span> Harsh Tripathi. Crafted with <i class="fas fa-heart"></i> in New Delhi.</p>
-        <a href="#home" class="back-top" aria-label="Back to top">
-          <i class="fas fa-arrow-up"></i>
-        </a>
-      </div>
-    </div>
-  </footer>
-
-  <!-- AOS JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-  <!-- Main JS -->
-  <script src="js/main.js"></script>
-</body>
+    <!-- Main Script -->
+    <script src="js/main.js"></script>
+  </body>
 </html>
